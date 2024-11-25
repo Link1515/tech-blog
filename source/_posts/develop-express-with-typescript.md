@@ -1,6 +1,6 @@
 ---
 title: 創建 express 的 typescript 環境
-date: 2023-11-18 09:53:50
+date: 2023-11-11 11:37:08
 categories: 後端
 tags:
   - Express
@@ -125,3 +125,6 @@ tsc --init
 如此一來，我們就成功建構了能以 TypeScript 開發的 Express 環境
 
 在此基礎下，可以去參考我寫的其他文章
+
+- [TypeScript Express 設定路徑別名 (Alias)](/tech-blog/2023/11/18/typescript-express-alias/)
+- [Node.js 如何取得圖片的 Mime Types](/tech-blog/2023/11/18/typescript-express-alias/)
