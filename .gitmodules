@@ -1,0 +1,3 @@
+[submodule "themes/hexo-bootstrap-theme"]
+	path = themes/hexo-bootstrap-theme
+	url = https://github.com/Link1515/hexo-bootstrap-theme
