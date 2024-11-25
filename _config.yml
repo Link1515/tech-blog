@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+title: Lynk is here
+subtitle: 記下我常忘的軟體知識
+description: 記錄下我經常忘記的軟體知識，方便在需要時快速查詢和回顧，同時也分享給其他遇到相同問題的人。這些知識涵蓋語法細節、開發工具的指令、框架的特性、調試技巧、API 的使用方式，或者一些錯誤的解決方法。
+keywords: 軟體知識
+author: Terry Lin
+language: zh-tw
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://link1515.github.io/tech-blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -43,16 +43,11 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-syntax_highlighter: highlight.js
-highlight:
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
+syntax_highlighter: prismjs
 prismjs:
-  preprocess: true
+  preprocess: false
   line_number: true
+  line_threshold: 0
   tab_replace: ''
 
 # Home page setting
@@ -97,6 +92,16 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-bootstrap-theme # https://github.com/Link1515/hexo-bootstrap-theme
+theme_config:
+  share_image: /images/share.jpg
+  favicon: /images/favicon.ico
+  logo:
+    title: Lynk is here
+    image: /images/logo.png
+  post:
+    show_cover: true
+    show_description: true
+  footer_content: © Copyright 2024 By Terry Lin
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
