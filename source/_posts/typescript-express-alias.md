@@ -19,7 +19,7 @@ description: 本文章將逐步帶領讀者完成 TypeScript Express 的路徑�
 
 ### 安裝 tsconfig-paths
 
-```bash
+```
 pnpm i -D tsconfig-paths
 ```
 
@@ -96,7 +96,7 @@ app.listen(port, () => {
 
 但當我們嘗試 `pnpm build` 正式環境並啟動
 
-```bash
+```
 pnpm build
 pnpm start
 ```
@@ -111,7 +111,7 @@ pnpm start
 
 ### 安裝 module-alias
 
-```bash
+```
 pnpm i module-alias
 ```
 
@@ -150,7 +150,7 @@ app.listen(port, () => {
 
 再來 `build` 一次正式環境
 
-```bash
+```
 pnpm build
 pnpm start
 ```

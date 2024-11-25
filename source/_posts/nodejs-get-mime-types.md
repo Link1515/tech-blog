@@ -16,7 +16,7 @@ description: 最近工作上有個需求要取得圖片的 mime types，這篇�
 
 先安裝 `file-type` 以及會用到的 `axios`
 
-```bash
+```
 pnpm i file-type axios
 ```
 

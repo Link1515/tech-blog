@@ -14,13 +14,13 @@ description: 本篇文章將從 Node.js 環境創建，安裝相關套件，並�
 
 ### 建立 Node 環境
 
-```bash
+```
 pnpm init
 ```
 
 ### 安裝 Express 與相關套件
 
-```bash
+```
 pnpm i express
 pnpm i -D typescript nodemon ts-node
 ```
@@ -32,7 +32,7 @@ pnpm i -D typescript nodemon ts-node
 
 ### 安裝 Node 與 Express 的型別
 
-```bash
+```
 pnpm i -D @types/node @types/express
 ```
 
@@ -98,7 +98,7 @@ app.listen(port, () => {
 
 此時，可以先執行 `pnpm dev` 看看能不能成功
 
-```bash
+```
 pnpm dev
 ```
 
@@ -108,7 +108,7 @@ pnpm dev
 
 執行 `tsc --init` 初始化 TypeScript，此時會自動產生 `tsconfig.json`，裡面已經有預設配置
 
-```bash
+```
 tsc --init
 ```
 
