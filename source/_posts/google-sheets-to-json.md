@@ -1,7 +1,7 @@
 ---
 title: 用 Google Sheets 產生 JSON 格式 API
 date: 2024-01-14 10:52:20
-categories: 其他
+categories: Others
 tags:
     - API
     - Apps Script

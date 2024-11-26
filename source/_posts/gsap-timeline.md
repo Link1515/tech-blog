@@ -1,7 +1,7 @@
 ---
 title: GSAP 教學： Timeline
 date: 2024-01-02 19:59:06
-categories: 前端
+categories: Frontend
 tags:
     - GSAP
 cover: /images/cover/gsap.jpg

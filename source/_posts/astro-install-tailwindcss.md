@@ -1,7 +1,7 @@
 ---
 title: Astro 專案中使用 TailwindCSS 並配置 class 自動排版
 date: 2023-12-02 09:10:11
-categories: 前端
+categories: Frontend
 tags:
     - Astro
     - Prettier

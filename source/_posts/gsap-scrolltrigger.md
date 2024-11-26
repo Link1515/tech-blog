@@ -1,7 +1,7 @@
 ---
 title: GSAP 教學： ScrollTrigger
 date: 2024-01-06 09:39:41
-categories: 前端
+categories: Frontend
 tags:
     - GSAP
 cover: /images/cover/gsap.jpg

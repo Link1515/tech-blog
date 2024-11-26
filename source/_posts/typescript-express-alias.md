@@ -1,7 +1,7 @@
 ---
 title: TypeScript Express 設定路徑別名 (Alias)
 date: 2023-11-18 09:41:37
-categories: 後端
+categories: Backend
 tags:
   - Express
   - Node.js
@@ -11,7 +11,7 @@ description: 本文章將逐步帶領讀者完成 TypeScript Express 的路徑�
 ---
 
 > 本文章是直接以應用 Express 為主，但做其他開發，也可以採用相同方法。
-> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/tech-blog/2023/11/11/develop-express-with-typescript/)
+> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/tech-blog/Backend/develop-express-with-typescript/)
 
 ## 使路徑別名在開發環境生效
 

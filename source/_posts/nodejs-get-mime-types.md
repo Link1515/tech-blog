@@ -1,7 +1,7 @@
 ---
 title: Node.js 如何取得圖片的 Mime Types
 date: 2023-11-25 09:55:22
-categories: 後端
+categories: Backend
 tags:
   - Express
   - Node.js
@@ -10,7 +10,7 @@ cover: /images/cover/mimetypes.jpg
 description: 最近工作上有個需求要取得圖片的 mime types，這篇文章簡單紀錄在 Node.js 環境下使用 file-type 套件來取得圖片的 mime types。
 ---
 
-> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/tech-blog/2023/11/11/develop-express-with-typescript/)
+> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/tech-blog/Backend/develop-express-with-typescript/)
 
 ### 安裝套件
 

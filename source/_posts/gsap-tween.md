@@ -1,7 +1,7 @@
 ---
 title: GSAP 教學： Tween
 date: 2023-12-23 20:40:55
-categories: 前端
+categories: Frontend
 tags:
     - GSAP
 cover: /images/cover/gsap.jpg

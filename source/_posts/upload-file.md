@@ -1,7 +1,7 @@
 ---
 title: '前端檔案上傳: 選擇檔案與拖曳檔案'
 date: 2024-01-27 20:36:47
-categories: 前端
+categories: Frontend
 tags:
     - JavaScript
 cover: /images/cover/file_upload.jpg
