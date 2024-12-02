@@ -48,7 +48,7 @@ future: true
 syntax_highlighter: prismjs
 prismjs:
   preprocess: false
-  line_number: true
+  line_number: false
   line_threshold: 0
   tab_replace: ''
 
