@@ -5,7 +5,7 @@ categories: Backend
 tags:
   - Express
   - Node.js
-  - Typescript
+  - TypeScript
 cover: /images/cover/ts_x_express.jpg
 description: 本篇文章將從 Node.js 環境創建，安裝相關套件，並配置 TypeScript，逐步完成一個使用 TypeScript 的 Express 應用。
 ---

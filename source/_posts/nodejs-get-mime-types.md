@@ -5,7 +5,7 @@ categories: Backend
 tags:
   - Express
   - Node.js
-  - Typescript
+  - TypeScript
 cover: /images/cover/image.jpg
 description: 最近工作上有個需求要取得圖片的 mime types，這篇文章簡單紀錄在 Node.js 環境下使用 file-type 套件來取得圖片的 mime types。
 ---

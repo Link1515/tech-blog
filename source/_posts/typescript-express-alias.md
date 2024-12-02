@@ -5,7 +5,7 @@ categories: Backend
 tags:
   - Express
   - Node.js
-  - Typescript
+  - TypeScript
 cover: /images/cover/ts_x_express.jpg
 description: 本文章將逐步帶領讀者完成 TypeScript Express 的路徑別名配置，其中包含了開發環境下的配置，與正式環境下的配置。此處提到的路徑別名為 import 時的路徑別名。
 ---
