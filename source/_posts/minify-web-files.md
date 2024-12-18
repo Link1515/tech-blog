@@ -115,7 +115,7 @@ function add(a, b) {
 }
 ```
 
-這樣的情況下，`esbuild` 會認為這是沒有使用到的函數，預設會去除這些函數 (`tree shake`)。解決辦法是我們把這些要在全域使用的函數手動放到 `window` 上，最終使用上結果是一樣的，但不會被 `esbuild` 去除
+這樣的情況下，`esbuild` 會認為這是沒有使用到的函數，預設會去除這些函數 (`tree shake`)。解決辦法是把這些要在全域使用的函數，手動放到 `window` 上，最終使用上結果是一樣的，但不會被 `esbuild` 去除
 
 ```JavaScript
 // utils.js
