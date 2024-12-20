@@ -12,7 +12,7 @@
     "version": "7.3.0"
   },
   "dependencies": {
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.24.1",
     "glob": "^11.0.0",
     "hexo": "^7.3.0",
     "hexo-generator-archive": "^2.0.0",
