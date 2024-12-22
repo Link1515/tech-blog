@@ -1,0 +1,1 @@
+(()=>{var o=document.querySelector("#goTopBtn");o.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});window.addEventListener("scroll",window.debounce(()=>{window.scrollY>200?(o.style.visibility="visible",o.style.opacity=1):(o.style.visibility="",o.style.opacity="")}));})();

@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>用 Node.js 啟動 TLS server | Lynk is here</title><meta name=description content="隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來起一個 TLS Server ，並使用我們自己產生的憑證來進行 demo"><link rel=icon type=image/x-icon href=/tech-blog/images/favicon.ico><meta property=og:type content=website><meta property=og:url content=https://link1515.github.io/tech-blog><meta property=og:title content="用 Node.js 啟動 TLS server | Lynk is here"><meta property=og:description content="隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來起一個 TLS Server ，並使用我們自己產生的憑證來進行 demo"><meta property=og:image content=/tech-blog/images/cover/tls.jpg><meta name=twitter:card content=summary_large_image><meta name=twitter:title content="用 Node.js 啟動 TLS server | Lynk is here"><meta name=twitter:description content="隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來起一個 TLS Server ，並使用我們自己產生的憑證來進行 demo"><meta name=twitter:image content=/tech-blog/images/cover/tls.jpg><link rel=stylesheet href=/tech-blog/lib/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css><link rel=stylesheet href=/tech-blog/lib/prismjs/prism.min.css><link rel=stylesheet href=/tech-blog/lib/prismjs/prism-vsc-dark-plus.css><link rel=stylesheet href=/tech-blog/css/main.css><meta name=generator content="Hexo 7.3.0"></head><body data-bs-theme=dark><script>const theme=window.localStorage.getItem("theme")??"";document.body.dataset.bsTheme=theme</script><div class="min-vh-100 d-flex flex-column"><nav id=navbar class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm"><div class=container-lg><a id=logo class=navbar-brand href=/tech-blog/ ><img class=me-1 src=/tech-blog/images/logo.png height=50 alt=logo> Lynk is here </a><button class="navbar-toggler px-2" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent><i class="bi bi-list icon-20"></i></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav ms-auto mb-2 mb-lg-0"><li class=nav-item><a class=nav-link href=/tech-blog/ ><i class="bi bi-house-fill icon-20"></i> 首頁</a></li><li class=nav-item><a class=nav-link href=/tech-blog/archives><i class="bi bi-list-ul icon-20"></i> 列表</a></li><li class=nav-item><a class=nav-link href=/tech-blog/categories><i class="bi bi-folder-fill icon-20"></i> 分類</a></li><li class=nav-item><a class=nav-link href=/tech-blog/tags><i class="bi bi-tags-fill icon-20"></i> 標籤</a></li></ul><div class="d-flex justify-content-center"><button id=toggleThemeBtn class="toggleThemeBtn btn" style=border:none><i class="bi bi-lightbulb-fill icon-20"></i></button> <button id=searchBtn class="searchBtn btn" style=border:none data-bs-toggle=modal data-bs-target=#searchModal><i class="bi bi-search icon-20"></i></button></div></div></div></nav><div class="flex-grow-1 container-lg mt-4 mb-5"><div class=post><h1>用 Node.js 啟動 TLS server</h1><small class=text-body-secondary><time datetime=2024-03-16T00:00:00.000Z>2024-03-16</time></small><hr><div class="d-flex flex-column gap-2 mb-4"><div><div class="d-flex flex-wrap gap-2"><a href=/tech-blog/categories/Backend/ class="btn btn-secondary btn-sm"><i class="bi bi-folder-fill icon-15"></i> Backend</a></div></div><div><div class="tagLinks d-flex flex-wrap gap-2"><a href=/tech-blog/tags/Node-js/ class="btn btn-secondary btn-sm"><i class="bi bi-tag-fill icon-15"></i> Node.js </a><a href=/tech-blog/tags/TLS/ class="btn btn-secondary btn-sm"><i class="bi bi-tag-fill icon-15"></i> TLS</a></div></div></div><div class="text-center mb-4"><img class="img-fluid rounded" width=1200 height=630 src=/tech-blog/images/cover/tls.jpg alt=cover></div><div class=content><p>隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來起一個 TLS Server ，並使用我們自己產生的憑證來進行 demo</p><h2 id=產生-Key-與-Certificate><a href=#產生-Key-與-Certificate class=headerlink title="產生 Key 與 Certificate"></a>產生 Key 與 Certificate</h2><p>在使用 <code>TLS</code> 協議時，server 需要一個 <code>key</code> 進行資料加密，還需要一個 <code>certificate</code> (憑證) 確保 server 是被認證的。通常 <code>certificate</code> 是由機構認證的，如: Let’s Encrypt、Comodo、DigiCer … 等，在此範例中，我們使用自簽 <code>certificate</code> 來進行演示</p><p>首先要先確認設備上已經有 <a target=_blank rel=noopener href=https://www.openssl.org/ >openssl</a></p><pre class=language-none><code class=language-none>openssl -v</code></pre><h3 id=生成-Key><a href=#生成-Key class=headerlink title="生成 Key"></a>生成 Key</h3><p>這個產生出來的 key 實際上是 <code>private key</code></p><pre class=language-Bash data-language=Bash><code class=language-Bash>openssl genrsa -out server-key.pem 2048</code></pre><p>透過 <code>private key</code> 也可以取得 <code>public key</code>，而 <code>public key</code> 會一起放在 <code>certificate</code> 中，所以我們無需特別去產 <code>public key</code> 檔案</p><pre class=language-Bash data-language=Bash><code class=language-Bash># 產 public key 的方法，可以不用執行
+openssl rsa -pubout -in server-key.pem -out server-key.pub</code></pre><h3 id=自簽-certificate><a href=#自簽-certificate class=headerlink title="自簽 certificate"></a>自簽 certificate</h3><p>在 <code>certificate</code> 中，會透過 <code>private key</code> 產生 <code>public key</code> 放到 <code>certificate</code> 中，client side 可以從 <code>certificate</code> 取得 <code>public key</code> 對資料進行加密，後續到 server 後再進行解密</p><pre class=language-Bash data-language=Bash><code class=language-Bash>openssl req -new -key server-key.pem -x509 -days 365 -out server-cert.pem</code></pre><h2 id=Node-js-啟動-TLS-Server><a href=#Node-js-啟動-TLS-Server class=headerlink title="Node.js 啟動 TLS Server"></a>Node.js 啟動 TLS Server</h2><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>const tls &#x3D; require(&#39;tls&#39;);
+const fs &#x3D; require(&#39;fs&#39;);
+
+&#x2F;&#x2F; 建立 tls server
+const server &#x3D; tls.createServer(&#123;
+  &#x2F;&#x2F; 使用 private key
+  key: fs.readFileSync(&#39;server-key.pem&#39;),
+  &#x2F;&#x2F; 使用 certificate
+  cert: fs.readFileSync(&#39;server-cert.pem&#39;)
+&#125;);
+
+server.on(&#39;secureConnection&#39;, socket &#x3D;&gt; &#123;
+  console.log(&#39;Client connected&#39;);
+
+  socket.on(&#39;data&#39;, data &#x3D;&gt; &#123;
+    console.log(&#39;Received data from client:&#39;, data.toString());
+
+    socket.write(&#39;Hello, client!&#39;);
+
+    &#x2F;&#x2F; 斷開 client 連線
+    socket.end();
+  &#125;);
+
+  socket.on(&#39;end&#39;, () &#x3D;&gt; &#123;
+    console.log(&#39;Client disconnected&#39;);
+  &#125;);
+&#125;);
+
+server.listen(8080, () &#x3D;&gt; &#123;
+  console.log(&#39;Server listening on port 8080&#39;);
+&#125;);</code></pre><p>當有 client 連上此 server 後，server 的終端機會印出 “Client connected”，並在 client 傳資料到 server 時，印出 client 傳來的資料，並返回 “Hello, client!” 到 client side</p><h2 id=Node-js-作為-Client-連上-Server><a href=#Node-js-作為-Client-連上-Server class=headerlink title="Node.js 作為 Client 連上 Server"></a>Node.js 作為 Client 連上 Server</h2><p>因為我們用自簽憑證，需要加入 <code>NODE_TLS_REJECT_UNAUTHORIZED = 0</code> 環境變數，允許連線到不被信任的 server</p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>const tls &#x3D; require(&#39;tls&#39;);
+const fs &#x3D; require(&#39;fs&#39;);
+
+&#x2F;&#x2F; 允許連線到不信任的 server (自簽憑證)
+process.env.NODE_TLS_REJECT_UNAUTHORIZED &#x3D; 0;
+
+&#x2F;&#x2F; 進行 tls 連線
+const client &#x3D; tls.connect(&#123;
+  host: &#39;localhost&#39;,
+  port: 8080,
+&#125;);
+
+client.on(&#39;connect&#39;, () &#x3D;&gt; &#123;
+  console.log(&#39;Client connected to server&#39;);
+
+  client.write(&#39;Hello, server!&#39;);
+&#125;);
+
+client.on(&#39;data&#39;, data &#x3D;&gt; &#123;
+  console.log(&#39;Received data from server:&#39;, data.toString());
+&#125;);
+
+client.on(&#39;end&#39;, () &#x3D;&gt; &#123;
+  console.log(&#39;Client disconnected from server&#39;);
+&#125;);</code></pre><p>當連上 server 後，終端機印出 “Client connected to server”，並在收到 server 傳來的資料時，印出 server 來的資料 (即 “Hello, client!”)</p><h2 id=瀏覽器作為-Client-連上-Server><a href=#瀏覽器作為-Client-連上-Server class=headerlink title="瀏覽器作為 Client 連上 Server"></a>瀏覽器作為 Client 連上 Server</h2><p>用瀏覽器連上 <code>https://localhost:8080</code></p><blockquote><p>注意這裡是使用 <code>https</code> 而不是 <code>http</code></p></blockquote><p>會先看到是否連上不信任的 server，可以按 advance 連上此 server</p><p><img src=/tech-blog/images/posts/tls-server-by-nodejs/browser-connect-warning.jpg alt=browser-connect-warning></p><p>就可以成功在畫面上看到 Hello, client!</p></div></div></div><footer class="footer border-top text-center py-3"><div class="container-lg text-body-secondary">© Copyright 2024 By Terry Lin</div></footer></div><div class="modal fade" id=searchModal tabindex=-1><div class=modal-dialog><div class=modal-content><div class=modal-body><div class="position-relative mb-3"><input id=searchInput class=form-control type=search style=padding-left:2.25rem> <span class="position-absolute top-50 translate-middle-y search-icon" style=left:.75rem><i class="bi bi-search"></i></span></div><div id=searchResults class="list-group list-group-flush"></div><div id=searchNoResult class="list-group list-group-flush" style=display:none><span class=list-group-item>查無結果</span></div></div></div></div></div><div class=goTopBtn><button id=goTopBtn class=shadow-sm><i class="bi bi-chevron-up"></i></button></div><script src=/tech-blog/lib/bootstrap/bootstrap.bundle.min.js></script><script src=/tech-blog/lib/prismjs/prism.min.js></script><script src=/tech-blog/lib/fuse/fuse.js></script><script src=/tech-blog/js/utils.js></script><script src=/tech-blog/js/main.js type=module></script></body></html>

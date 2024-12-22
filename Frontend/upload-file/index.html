@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>前端檔案上傳: 選擇檔案與拖曳檔案 | Lynk is here</title><meta name=description content=製作網頁上傳區域，結合拖曳及點擊選擇檔案功能，提升使用者體驗。透過直覺的拖曳動作或傳統的點擊方式，輕鬆選取檔案，使整個上傳流程更為靈活且方便，凸顯網頁互動設計的創新與便利性。><link rel=icon type=image/x-icon href=/tech-blog/images/favicon.ico><meta property=og:type content=website><meta property=og:url content=https://link1515.github.io/tech-blog><meta property=og:title content="前端檔案上傳: 選擇檔案與拖曳檔案 | Lynk is here"><meta property=og:description content=製作網頁上傳區域，結合拖曳及點擊選擇檔案功能，提升使用者體驗。透過直覺的拖曳動作或傳統的點擊方式，輕鬆選取檔案，使整個上傳流程更為靈活且方便，凸顯網頁互動設計的創新與便利性。><meta property=og:image content=/tech-blog/images/cover/file_upload.jpg><meta name=twitter:card content=summary_large_image><meta name=twitter:title content="前端檔案上傳: 選擇檔案與拖曳檔案 | Lynk is here"><meta name=twitter:description content=製作網頁上傳區域，結合拖曳及點擊選擇檔案功能，提升使用者體驗。透過直覺的拖曳動作或傳統的點擊方式，輕鬆選取檔案，使整個上傳流程更為靈活且方便，凸顯網頁互動設計的創新與便利性。><meta name=twitter:image content=/tech-blog/images/cover/file_upload.jpg><link rel=stylesheet href=/tech-blog/lib/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css><link rel=stylesheet href=/tech-blog/lib/prismjs/prism.min.css><link rel=stylesheet href=/tech-blog/lib/prismjs/prism-vsc-dark-plus.css><link rel=stylesheet href=/tech-blog/css/main.css><meta name=generator content="Hexo 7.3.0"></head><body data-bs-theme=dark><script>const theme=window.localStorage.getItem("theme")??"";document.body.dataset.bsTheme=theme</script><div class="min-vh-100 d-flex flex-column"><nav id=navbar class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm"><div class=container-lg><a id=logo class=navbar-brand href=/tech-blog/ ><img class=me-1 src=/tech-blog/images/logo.png height=50 alt=logo> Lynk is here </a><button class="navbar-toggler px-2" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent><i class="bi bi-list icon-20"></i></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav ms-auto mb-2 mb-lg-0"><li class=nav-item><a class=nav-link href=/tech-blog/ ><i class="bi bi-house-fill icon-20"></i> 首頁</a></li><li class=nav-item><a class=nav-link href=/tech-blog/archives><i class="bi bi-list-ul icon-20"></i> 列表</a></li><li class=nav-item><a class=nav-link href=/tech-blog/categories><i class="bi bi-folder-fill icon-20"></i> 分類</a></li><li class=nav-item><a class=nav-link href=/tech-blog/tags><i class="bi bi-tags-fill icon-20"></i> 標籤</a></li></ul><div class="d-flex justify-content-center"><button id=toggleThemeBtn class="toggleThemeBtn btn" style=border:none><i class="bi bi-lightbulb-fill icon-20"></i></button> <button id=searchBtn class="searchBtn btn" style=border:none data-bs-toggle=modal data-bs-target=#searchModal><i class="bi bi-search icon-20"></i></button></div></div></div></nav><div class="flex-grow-1 container-lg mt-4 mb-5"><div class=post><h1>前端檔案上傳: 選擇檔案與拖曳檔案</h1><small class=text-body-secondary><time datetime=2024-01-27T12:36:47.000Z>2024-01-27</time></small><hr><div class="d-flex flex-column gap-2 mb-4"><div><div class="d-flex flex-wrap gap-2"><a href=/tech-blog/categories/Frontend/ class="btn btn-secondary btn-sm"><i class="bi bi-folder-fill icon-15"></i> Frontend</a></div></div><div><div class="tagLinks d-flex flex-wrap gap-2"><a href=/tech-blog/tags/JavaScript/ class="btn btn-secondary btn-sm"><i class="bi bi-tag-fill icon-15"></i> JavaScript</a></div></div></div><div class="text-center mb-4"><img class="img-fluid rounded" width=1200 height=630 src=/tech-blog/images/cover/file_upload.jpg alt=cover></div><div class=content><p>製作網頁上傳區域，結合拖曳及點擊選擇檔案功能，提升使用者體驗。透過直覺的拖曳動作或傳統的點擊方式，輕鬆選取檔案，使整個上傳流程更為靈活且方便，凸顯網頁互動設計的創新與便利性。</p><blockquote><p>此文章以上傳一個檔案進行實作，讀者可以在熟悉以後延伸為多檔案上傳</p></blockquote><h2 id=建立簡易畫面><a href=#建立簡易畫面 class=headerlink title=建立簡易畫面></a>建立簡易畫面</h2><p>本文章著重在檔案上傳，畫面採用以下簡易的 HTML 與 CSS，畫面看起來會是粉紅色區域加上黑色虛線框</p><pre class=language-HTML data-language=HTML><code class=language-HTML>&lt;div id&#x3D;&quot;uploadArea&quot; class&#x3D;&quot;uploadArea&quot;&gt;&lt;&#x2F;div&gt;</code></pre><pre class=language-CSS data-language=CSS><code class=language-CSS>.uploadArea &#123;
+  width: 800px;
+  height: 400px;
+  border: 4px dashed black;
+  background-color: #faa;
+&#125;</code></pre><h2 id=點擊選擇上傳檔案><a href=#點擊選擇上傳檔案 class=headerlink title=點擊選擇上傳檔案></a>點擊選擇上傳檔案</h2><p>首先，我們先實作點擊上傳區域選擇檔案的方式</p><p>在原本 <code>.uploadArea</code> 元素中加入 <code>file</code> 類型的 <code>input</code> 標籤</p><pre class=language-HTML data-language=HTML><code class=language-HTML>&lt;div id&#x3D;&quot;uploadArea&quot; class&#x3D;&quot;uploadArea&quot;&gt;
+  &lt;input id&#x3D;&quot;fileInput&quot; class&#x3D;&quot;fileInput&quot; type&#x3D;&quot;file&quot; &#x2F;&gt;
+&lt;&#x2F;div&gt;</code></pre><p>透過 CSS 把 <code>.fileInput</code> 元素的透明度設為 0，寬高都與父層 <code>.uploadArea</code> 相同</p><pre class=language-CSS data-language=CSS><code class=language-CSS>.fileInput &#123;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+&#125;</code></pre><p>如此一來，現在點擊上傳區域，就會出現選擇檔案的畫面</p><p>再來撰寫 JavaScript，我們需要在 <code>#fileInput</code> 元素上綁定 <code>change</code> 事件。之後選擇檔案，就可以觸發 <code>change</code> 事件，再從事件物件上取得要上傳的檔案</p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>const fileInputEl &#x3D; document.querySelector(&#39;#fileInput&#39;);
+
+fileInputEl.addEventListener(&#39;change&#39;, e &#x3D;&gt; &#123;
+  const file &#x3D; e.currentTarget.files[0];
+
+  &#x2F;&#x2F; 可以打印看看 file，會可以看到檔案相關資訊
+  console.log(file);
+&#125;);</code></pre><p>完整的 HTML 檔案如下</p><pre class=language-HTML data-language=HTML><code class=language-HTML>&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;
+    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;
+    &lt;title&gt;File Upload&lt;&#x2F;title&gt;
+    &lt;style&gt;
+      .uploadArea &#123;
+        width: 800px;
+        height: 400px;
+        border: 4px dashed black;
+        background-color: #faa;
+      &#125;
+
+      .fileInput &#123;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+      &#125;
+    &lt;&#x2F;style&gt;
+  &lt;&#x2F;head&gt;
+  &lt;body&gt;
+    &lt;div id&#x3D;&quot;uploadArea&quot; class&#x3D;&quot;uploadArea&quot;&gt;
+      &lt;input id&#x3D;&quot;fileInput&quot; class&#x3D;&quot;fileInput&quot; type&#x3D;&quot;file&quot; &#x2F;&gt;
+    &lt;&#x2F;div&gt;
+
+    &lt;script&gt;
+      &#x2F;**
+       * 點擊選擇上傳檔案 
+       *&#x2F;
+      const fileInputEl &#x3D; document.querySelector(&#39;#fileInput&#39;);
+
+      fileInputEl.addEventListener(&#39;change&#39;, e &#x3D;&gt; &#123;
+        const file &#x3D; e.currentTarget.files[0];
+        console.log(file);
+      &#125;);
+    &lt;&#x2F;script&gt;
+  &lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;</code></pre><h2 id=拖曳上傳檔案><a href=#拖曳上傳檔案 class=headerlink title=拖曳上傳檔案></a>拖曳上傳檔案</h2><p>接下來實做拖曳上傳檔案</p><p>我們先阻止 <code>#uploadArea</code> 上 <code>drop</code> 與 <code>dragover</code> 事件的預設行為</p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>const uploadAreaEl &#x3D; document.querySelector(&#39;#uploadArea&#39;);
+
+[&#39;dragover&#39;, &#39;drop&#39;].forEach(eventType &#x3D;&gt; &#123;
+  uploadAreaEl.addEventListener(eventType, e &#x3D;&gt; e.preventDefault());
+&#125;);</code></pre><p>而在 <code>drop</code> 事件上，我們可以取得到檔案</p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>uploadAreaEl.addEventListener(&#39;drop&#39;, e &#x3D;&gt; &#123;
+  const file &#x3D; e.dataTransfer.files[0];
+
+  &#x2F;&#x2F; 可以打印看看 file，會可以看到檔案相關資訊
+  console.log(file);
+&#125;);</code></pre><p>完整的 HTML 檔案如下</p><pre class=language-HTML data-language=HTML><code class=language-HTML>&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;
+    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;
+    &lt;title&gt;File Upload&lt;&#x2F;title&gt;
+    &lt;style&gt;
+      .uploadArea &#123;
+        width: 800px;
+        height: 400px;
+        border: 4px dashed black;
+        background-color: #faa;
+      &#125;
+
+      .fileInput &#123;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+      &#125;
+    &lt;&#x2F;style&gt;
+  &lt;&#x2F;head&gt;
+  &lt;body&gt;
+    &lt;div id&#x3D;&quot;uploadArea&quot; class&#x3D;&quot;uploadArea&quot;&gt;
+      &lt;input id&#x3D;&quot;fileInput&quot; class&#x3D;&quot;fileInput&quot; type&#x3D;&quot;file&quot; &#x2F;&gt;
+    &lt;&#x2F;div&gt;
+
+    &lt;script&gt;
+      &#x2F;**
+       * 點擊選擇上傳檔案
+       *&#x2F;
+      const fileInputEl &#x3D; document.querySelector(&#39;#fileInput&#39;);
+
+      fileInputEl.addEventListener(&#39;change&#39;, e &#x3D;&gt; &#123;
+        const file &#x3D; e.currentTarget.files[0];
+        console.log(file);
+      &#125;);
+
+      &#x2F;**
+       * 拖曳上傳檔案
+       *&#x2F;
+      const uploadAreaEl &#x3D; document.querySelector(&#39;#uploadArea&#39;);
+
+      [&#39;dragover&#39;, &#39;drop&#39;].forEach(eventType &#x3D;&gt; &#123;
+        uploadAreaEl.addEventListener(eventType, e &#x3D;&gt; e.preventDefault());
+      &#125;);
+
+      uploadAreaEl.addEventListener(&#39;drop&#39;, e &#x3D;&gt; &#123;
+        const file &#x3D; e.dataTransfer.files[0];
+        console.log(file);
+      &#125;);
+    &lt;&#x2F;script&gt;
+  &lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;</code></pre><p>檔案上傳區域的製作就完成了，隨後可以透過 <code>FormData</code> 傳送檔案到後端進行後續處理</p></div></div></div><footer class="footer border-top text-center py-3"><div class="container-lg text-body-secondary">© Copyright 2024 By Terry Lin</div></footer></div><div class="modal fade" id=searchModal tabindex=-1><div class=modal-dialog><div class=modal-content><div class=modal-body><div class="position-relative mb-3"><input id=searchInput class=form-control type=search style=padding-left:2.25rem> <span class="position-absolute top-50 translate-middle-y search-icon" style=left:.75rem><i class="bi bi-search"></i></span></div><div id=searchResults class="list-group list-group-flush"></div><div id=searchNoResult class="list-group list-group-flush" style=display:none><span class=list-group-item>查無結果</span></div></div></div></div></div><div class=goTopBtn><button id=goTopBtn class=shadow-sm><i class="bi bi-chevron-up"></i></button></div><script src=/tech-blog/lib/bootstrap/bootstrap.bundle.min.js></script><script src=/tech-blog/lib/prismjs/prism.min.js></script><script src=/tech-blog/lib/fuse/fuse.js></script><script src=/tech-blog/js/utils.js></script><script src=/tech-blog/js/main.js type=module></script></body></html>

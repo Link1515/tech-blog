@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>簡單的壓縮 HTML、CSS、JavaScript | Lynk is here</title><meta name=description content="在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短加載時間。"><link rel=icon type=image/x-icon href=/tech-blog/images/favicon.ico><meta property=og:type content=website><meta property=og:url content=https://link1515.github.io/tech-blog><meta property=og:title content="簡單的壓縮 HTML、CSS、JavaScript | Lynk is here"><meta property=og:description content="在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短加載時間。"><meta property=og:image content=/tech-blog/images/cover/compress.jpg><meta name=twitter:card content=summary_large_image><meta name=twitter:title content="簡單的壓縮 HTML、CSS、JavaScript | Lynk is here"><meta name=twitter:description content="在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短加載時間。"><meta name=twitter:image content=/tech-blog/images/cover/compress.jpg><link rel=stylesheet href=/tech-blog/lib/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css><link rel=stylesheet href=/tech-blog/lib/prismjs/prism.min.css><link rel=stylesheet href=/tech-blog/lib/prismjs/prism-vsc-dark-plus.css><link rel=stylesheet href=/tech-blog/css/main.css><meta name=generator content="Hexo 7.3.0"></head><body data-bs-theme=dark><script>const theme=window.localStorage.getItem("theme")??"";document.body.dataset.bsTheme=theme</script><div class="min-vh-100 d-flex flex-column"><nav id=navbar class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm"><div class=container-lg><a id=logo class=navbar-brand href=/tech-blog/ ><img class=me-1 src=/tech-blog/images/logo.png height=50 alt=logo> Lynk is here </a><button class="navbar-toggler px-2" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent><i class="bi bi-list icon-20"></i></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav ms-auto mb-2 mb-lg-0"><li class=nav-item><a class=nav-link href=/tech-blog/ ><i class="bi bi-house-fill icon-20"></i> 首頁</a></li><li class=nav-item><a class=nav-link href=/tech-blog/archives><i class="bi bi-list-ul icon-20"></i> 列表</a></li><li class=nav-item><a class=nav-link href=/tech-blog/categories><i class="bi bi-folder-fill icon-20"></i> 分類</a></li><li class=nav-item><a class=nav-link href=/tech-blog/tags><i class="bi bi-tags-fill icon-20"></i> 標籤</a></li></ul><div class="d-flex justify-content-center"><button id=toggleThemeBtn class="toggleThemeBtn btn" style=border:none><i class="bi bi-lightbulb-fill icon-20"></i></button> <button id=searchBtn class="searchBtn btn" style=border:none data-bs-toggle=modal data-bs-target=#searchModal><i class="bi bi-search icon-20"></i></button></div></div></div></nav><div class="flex-grow-1 container-lg mt-4 mb-5"><div class=post><h1>簡單的壓縮 HTML、CSS、JavaScript</h1><small class=text-body-secondary><time datetime=2024-12-02T06:54:20.000Z>2024-12-02</time></small><hr><div class="d-flex flex-column gap-2 mb-4"><div><div class="d-flex flex-wrap gap-2"><a href=/tech-blog/categories/Frontend/ class="btn btn-secondary btn-sm"><i class="bi bi-folder-fill icon-15"></i> Frontend</a></div></div><div><div class="tagLinks d-flex flex-wrap gap-2"><a href=/tech-blog/tags/JavaScript/ class="btn btn-secondary btn-sm"><i class="bi bi-tag-fill icon-15"></i> JavaScript </a><a href=/tech-blog/tags/Node-js/ class="btn btn-secondary btn-sm"><i class="bi bi-tag-fill icon-15"></i> Node.js</a></div></div></div><div class="text-center mb-4"><img class="img-fluid rounded" width=1200 height=630 src=/tech-blog/images/cover/compress.jpg alt=cover></div><div class=content><p>在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短加載時間。</p><p>假設今天前端工程師對於框架較不熟悉，採用<strong>原生寫法</strong>，<strong>不套用任何框架</strong>，<strong>沒有用任何打包工具</strong>，HTML、CSS、JavaScript 都是用最原生的寫法，目錄結構大致如下</p><p><img src=/tech-blog/images/posts/minify-web-files/file-structure.png alt=file-structure></p><p>我們在拿到這包檔案後，可以協助前端工程師用一些簡單快速的方法來壓縮 HTML、CSS、JavaScript，節省一些檔案在網路傳輸時的流量</p><h2 id=壓縮-HTML><a href=#壓縮-HTML class=headerlink title="壓縮 HTML"></a>壓縮 HTML</h2><p>我們使用 <code>glob</code> 套件來取得所有 HTML 檔案的路徑，然後使用 <code>html-minifier-terser</code> 套件來壓縮 HTML 檔案。</p><pre class=language-Bash data-language=Bash><code class=language-Bash>pnpm i html-minifier-terser glob</code></pre><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>import fs from &#39;fs&#x2F;promises&#39;;
+import &#123; glob &#125; from &#39;glob&#39;;
+import &#123; minify &#125; from &#39;html-minifier-terser&#39;;
+
+&#x2F;&#x2F; 取得所有在 public 資料夾下的 HTML 檔案
+const htmlFiles &#x3D; await glob(&#39;public&#x2F;**&#x2F;*.html&#39;);
+
+htmlFiles.forEach(async file &#x3D;&gt; &#123;
+  &#x2F;&#x2F; 讀取 HTML 檔案
+  const html &#x3D; await fs.readFile(file, &#39;utf8&#39;);
+  &#x2F;&#x2F; 壓縮 HTML 檔案
+  const minifiedHTML &#x3D; await minify(html, &#123;
+    removeComments: true,
+    collapseWhitespace: true,
+    removeAttributeQuotes: true,
+    minifyCSS: true,
+    minifyJS: true
+  &#125;);
+  &#x2F;&#x2F; 寫入壓縮後的 HTML 檔案
+  await fs.writeFile(file, minifiedHTML);
+&#125;);</code></pre><h2 id=壓縮-CSS-與-JavaScript><a href=#壓縮-CSS-與-JavaScript class=headerlink title="壓縮 CSS 與 JavaScript"></a>壓縮 CSS 與 JavaScript</h2><p>CSS 與 JavaScript 的壓縮我們使用 <code>esbuild</code> 套件處理。</p><pre class=language-Bash data-language=Bash><code class=language-Bash>pnpm i esbuild</code></pre><p>先將原始目錄 <code>css</code> 與 <code>js</code> 重新命名為 <code>cssTmp</code> 與 <code>jsTmp</code>，再以此目錄中的所有檔案為入口，並將輸出目錄設定為原始目錄，最後刪除 <code>cssTmp</code> 與 <code>jsTmp</code></p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>import fs from &#39;fs&#39;;
+import * as esbuild from &#39;esbuild&#39;;
+
+&#x2F;&#x2F; css 原始目錄
+const cssDir &#x3D; &#39;public&#x2F;css&#39;;
+&#x2F;&#x2F; js 原始目錄
+const jsDir &#x3D; &#39;public&#x2F;js&#39;;
+
+&#x2F;&#x2F; 處理 CSS 壓縮
+if (fs.existsSync(cssDir)) &#123;
+  &#x2F;&#x2F; 重新命名 css 原始目錄為 public&#x2F;cssTmp
+  const cssTmpDir &#x3D; cssDir + &#39;Tmp&#39;;
+  fs.renameSync(cssDir, cssTmpDir);
+
+  &#x2F;&#x2F; 壓縮 CSS
+  await esbuild.build(&#123;
+    entryPoints: [&#96;$&#123;cssTmpDir&#125;&#x2F;**&#x2F;*.css&#96;],
+    outdir: cssDir,
+    minify: true
+  &#125;);
+
+  &#x2F;&#x2F; 刪除 public&#x2F;cssTmp
+  fs.rmSync(cssTmpDir, &#123; recursive: true, force: true &#125;);
+&#125;
+
+&#x2F;&#x2F; 處理 JavaScript 壓縮
+if (fs.existsSync(jsDir)) &#123;
+  &#x2F;&#x2F; 重新命名 js 原始目錄為 public&#x2F;jsTmp
+  const jsTmpDir &#x3D; jsDir + &#39;Tmp&#39;;
+  fs.renameSync(jsDir, jsTmpDir);
+
+  &#x2F;&#x2F; 壓縮 JavaScript
+  await esbuild.build(&#123;
+    entryPoints: [&#96;$&#123;jsTmpDir&#125;&#x2F;**&#x2F;*.js&#96;],
+    format: &#39;iife&#39;,
+    bundle: true,
+    outdir: jsDir,
+    minify: true
+  &#125;);
+
+  &#x2F;&#x2F; 刪除 public&#x2F;jsTmp
+  fs.rmSync(jsTmpDir, &#123; recursive: true, force: true &#125;);
+&#125;</code></pre><h3 id=注意-window-上的全域函數><a href=#注意-window-上的全域函數 class=headerlink title="注意 window 上的全域函數"></a>注意 window 上的全域函數</h3><p>如果 js 檔案中有直接透過 <code>function</code> 關鍵字定義函數，並需要在其他檔案中使用的情況，例如</p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>&#x2F;&#x2F; utils.js
+
+function add(a, b) &#123;
+  return a + b
+&#125;</code></pre><p>這樣的情況下，<code>esbuild</code> 會認為這是沒有使用到的函數，預設會去除這些函數 (<code>tree shake</code>)。解決辦法是把這些要在全域使用的函數，手動放到 <code>window</code> 上，最終使用上結果是一樣的，但不會被 <code>esbuild</code> 去除</p><pre class=language-JavaScript data-language=JavaScript><code class=language-JavaScript>&#x2F;&#x2F; utils.js
+
+window.add &#x3D; function(a, b) &#123;
+  return a + b
+&#125;</code></pre></div></div></div><footer class="footer border-top text-center py-3"><div class="container-lg text-body-secondary">© Copyright 2024 By Terry Lin</div></footer></div><div class="modal fade" id=searchModal tabindex=-1><div class=modal-dialog><div class=modal-content><div class=modal-body><div class="position-relative mb-3"><input id=searchInput class=form-control type=search style=padding-left:2.25rem> <span class="position-absolute top-50 translate-middle-y search-icon" style=left:.75rem><i class="bi bi-search"></i></span></div><div id=searchResults class="list-group list-group-flush"></div><div id=searchNoResult class="list-group list-group-flush" style=display:none><span class=list-group-item>查無結果</span></div></div></div></div></div><div class=goTopBtn><button id=goTopBtn class=shadow-sm><i class="bi bi-chevron-up"></i></button></div><script src=/tech-blog/lib/bootstrap/bootstrap.bundle.min.js></script><script src=/tech-blog/lib/prismjs/prism.min.js></script><script src=/tech-blog/lib/fuse/fuse.js></script><script src=/tech-blog/js/utils.js></script><script src=/tech-blog/js/main.js type=module></script></body></html>
