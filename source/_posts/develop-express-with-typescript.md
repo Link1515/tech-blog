@@ -114,7 +114,7 @@ tsc --init
 
 ### 輸出目錄
 
-在 tsconfig.json 中搜尋 `outDir` 配置項，可以配置輸出目錄，此範例中我們設定為 `dist` (搭配  `package.json` 中 script 的 start)
+在 tsconfig.json 中搜尋 `outDir` 配置項，可以配置輸出目錄，此範例中我們設定為 `dist` (搭配 `package.json` 中 script 的 start)
 
 ```json
 "outDir": "./dist"
@@ -126,5 +126,5 @@ tsc --init
 
 在此基礎下，可以去參考我寫的其他文章
 
-- [TypeScript Express 設定路徑別名 (Alias)](/tech-blog/Backend/typescript-express-alias/)
-- [Node.js 如何取得圖片的 Mime Types](/tech-blog/Backend/typescript-express-alias/)
+- [TypeScript Express 設定路徑別名 (Alias)](/Backend/typescript-express-alias/)
+- [Node.js 如何取得圖片的 Mime Types](/Backend/typescript-express-alias/)

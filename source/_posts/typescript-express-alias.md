@@ -11,7 +11,7 @@ description: 本文章將逐步帶領讀者完成 TypeScript Express 的路徑�
 ---
 
 > 本文章是直接以應用 Express 為主，但做其他開發，也可以採用相同方法。
-> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/tech-blog/Backend/develop-express-with-typescript/)
+> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/Backend/develop-express-with-typescript/)
 
 ## 使路徑別名在開發環境生效
 
@@ -27,26 +27,26 @@ pnpm i -D tsconfig-paths
 
 - 引入 `tsconfig-paths/register`
 - 配置需要的路徑別名
-    - 注意: 配置 `paths` 就一定要配置 `baseUrl`
-    - 我們將 `baseUrl` 設為 `.`，即當前專案的根目錄
-    - `paths` 配置一個映射到 `middeware` 目錄的路徑別名 `@middleware`
+  - 注意: 配置 `paths` 就一定要配置 `baseUrl`
+  - 我們將 `baseUrl` 設為 `.`，即當前專案的根目錄
+  - `paths` 配置一個映射到 `middeware` 目錄的路徑別名 `@middleware`
 
 ```json
 {
-    // 引入 tsconfig-paths/register
-    // 注意 ts-node 的層級與 compilerOptions 相同
-    "ts-node": {
-        "require": ["tsconfig-paths/register"]
-    },
-    "compilerOptions": {
-        // ...
-        // 配置需要的 alias
-        "baseUrl": ".",
-        "paths": {
-            "@middleware/*": ["middleware/*"],
-        },
-        // ...
+  // 引入 tsconfig-paths/register
+  // 注意 ts-node 的層級與 compilerOptions 相同
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "compilerOptions": {
+    // ...
+    // 配置需要的 alias
+    "baseUrl": ".",
+    "paths": {
+      "@middleware/*": ["middleware/*"]
     }
+    // ...
+  }
 }
 ```
 

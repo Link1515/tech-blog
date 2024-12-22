@@ -10,7 +10,7 @@ cover: /images/cover/image.jpg
 description: 最近工作上有個需求要取得圖片的 mime types，這篇文章簡單紀錄在 Node.js 環境下使用 file-type 套件來取得圖片的 mime types。
 ---
 
-> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/tech-blog/Backend/develop-express-with-typescript/)
+> 基礎專案可參考 [創建 Express 的 TypeScript 環境](/Backend/develop-express-with-typescript/)
 
 ### 安裝套件
 
