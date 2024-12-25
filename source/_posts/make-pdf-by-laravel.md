@@ -147,3 +147,7 @@ php load_fonts.php
 ```
 
 7. 確認載入字體成功後，就可以把根目錄的字體與 `load_fonts.php` 刪除
+
+## 相關文章
+
+其他實用技巧: [Laravel-pdfdom 實用筆記](/Backend/laravel-pdfdom-practical-notes)
