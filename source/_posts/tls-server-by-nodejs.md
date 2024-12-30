@@ -5,7 +5,7 @@ categories: Backend
 tags:
     - Node.js
     - TLS
-cover: /images/cover/tls.jpg
+cover: /images/cover/tls.webp
 description: 隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來起一個 TLS Server ，並使用我們自己產生的憑證來進行 demo
 ---
 
@@ -122,6 +122,6 @@ client.on('end', () => {
 
 會先看到是否連上不信任的 server，可以按 advance 連上此 server
 
-![browser-connect-warning](/images/posts/tls-server-by-nodejs/browser-connect-warning.jpg)
+![browser-connect-warning](/images/posts/tls-server-by-nodejs/browser-connect-warning.webp)
 
 就可以成功在畫面上看到 Hello, client!

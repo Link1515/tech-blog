@@ -5,7 +5,7 @@ categories: Backend
 tags:
     - Composer
     - PHP
-cover: /images/cover/composer_autoload.jpg
+cover: /images/cover/composer_autoload.webp
 description: Composer 是 PHP 的套件管理工具，用於管理專案的相依關係，而 Composer 的自動載入功能 (autoload) 允許開發人員在不指定檔案路徑的情況下使用類別。本文將深入研究 Composer 自動載入的源碼，探討其運作原理和實踐細節。
 ---
 

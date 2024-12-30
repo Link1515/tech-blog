@@ -5,7 +5,7 @@ categories: Backend
 tags:
     - Docker
     - Redis
-cover: /images/cover/docker_redis.jpg
+cover: /images/cover/docker_redis.webp
 description: 現代軟體開發中，Docker 成為開發者的好夥伴，它可以讓應用程式在各種環境中輕鬆運行。我們將學習如何用簡單的 Docker 指令，下載、啟動並設定 Redis 容器。
 ---
 

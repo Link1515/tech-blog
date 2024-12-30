@@ -6,7 +6,7 @@ tags:
     - PHP
     - Xdebug
     - VSCode
-cover: /images/cover/vscode_xdebug.jpg
+cover: /images/cover/vscode_xdebug.webp
 description: 文詳細介紹了如何安裝和配置 Xdebug，並將其與 VSCode 整合以實現高效的除錯流程，無論是初學者還是有經驗的開發者，都能因此提升開發效率。
 ---
 
@@ -46,22 +46,22 @@ php -ini | clip
 
 2. 開啟 [Installation Wizard](https://xdebug.org/wizard)，在文字區域中貼上 PHP 資訊 (此時可直接按 `Ctrl + v`)
 
-![wizard_textarea](/images/posts/xdebug-in-vscode/wizard_textarea.png)
+![wizard_textarea](/images/posts/xdebug-in-vscode/wizard_textarea.webp)
 
 3. 滾到最下面按 `Analyse my phpinfo() output` 按鈕，它就會幫我們分析當前 PHP 適合的 Xdebug 版本
 
-![wizard_analyse_btn](/images/posts/xdebug-in-vscode/wizard_analyse_btn.png)
+![wizard_analyse_btn](/images/posts/xdebug-in-vscode/wizard_analyse_btn.webp)
 
 4. 頁面跳轉後，找到 Instructions 按照步驟進行配置，先點第一點的連接安裝 Xdebug
 
-![wizard_download_link](/images/posts/xdebug-in-vscode/wizard_download_link.png)
+![wizard_download_link](/images/posts/xdebug-in-vscode/wizard_download_link.webp)
 
 5. 將下載的檔案重新命名為 `php_xdebug.dll`，並放入 PHP 安裝目錄下的 `ext` 資料夾中
 
 > 如果不知道 PHP 安裝目錄，可以參考第三點的路徑，去掉 `php.ini` 就是 PHP 的安裝目錄了，在此目錄中，就可以找到 `ext` 資料夾
 > (以圖為範例就是 `D:\php\8.3.10\ext`)
 
-![wizard_php_dir](/images/posts/xdebug-in-vscode/wizard_php_dir.png)
+![wizard_php_dir](/images/posts/xdebug-in-vscode/wizard_php_dir.webp)
 
 6. 再來開啟 `php.ini` (直接使用第三點提供的路徑)，滾到文件中最下面加入以下內容
 
@@ -78,7 +78,7 @@ php -v
 
 檢查是否成功使用 Xdebug，如果成功就會顯示
 
-![xdebug_installed](/images/posts/xdebug-in-vscode/xdebug_installed.png)
+![xdebug_installed](/images/posts/xdebug-in-vscode/xdebug_installed.webp)
 
 ## 在 VSCode 中使用
 
@@ -88,7 +88,7 @@ php -v
 
 在 VSCode 中開啟 PHP 腳本後，就可以直接對此腳本進行除錯，選擇 `Debug current Script in Console`
 
-![debug_current_file](/images/posts/xdebug-in-vscode/debug_current_file.png)
+![debug_current_file](/images/posts/xdebug-in-vscode/debug_current_file.webp)
 
 ### 監聽任意腳本除錯
 
@@ -108,7 +108,7 @@ xdebug.client_port=9003
 
 存檔後，選擇 `Listen For Xdebug` 進入 debug 監聽
 
-![debug_from_request](/images/posts/xdebug-in-vscode/debug_from_request.png)
+![debug_from_request](/images/posts/xdebug-in-vscode/debug_from_request.webp)
 
 在監聽期間，只要執行 PHP 腳本，就會開始 debug
 
@@ -121,7 +121,7 @@ php index.php
 來執行 `index.php`，此時就會直接進入該檔案中的斷點
 
 > 沒有 debug 監聽下，執行 php 腳本會出現警告
-> ![xdebug_timeout_warning](/images/posts/xdebug-in-vscode/xdebug_timeout_warning.png)
+> ![xdebug_timeout_warning](/images/posts/xdebug-in-vscode/xdebug_timeout_warning.webp)
 
 > 平時沒有使用 debug 監聽時，可以註解掉 `php.ini` 中的 `xdebug.mode` (最前面加入 `;`)
 > ```

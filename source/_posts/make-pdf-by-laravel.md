@@ -5,7 +5,7 @@ categories: Backend
 tags:
   - Laravel
   - PHP
-cover: /images/cover/laravel_pdf.jpg
+cover: /images/cover/laravel_pdf.webp
 description: 在使用 laravel-dompdf 產生 PDF 時，會遇到中文字顯示亂碼的問題，本篇文章提供解決辦法，幫助開發者順利生成完整且正確的中文 PDF。
 ---
 

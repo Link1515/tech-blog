@@ -6,7 +6,7 @@ tags:
   - Express
   - Node.js
   - TypeScript
-cover: /images/cover/image.jpg
+cover: /images/cover/image.webp
 description: 最近工作上有個需求要取得圖片的 mime types，這篇文章簡單紀錄在 Node.js 環境下使用 file-type 套件來取得圖片的 mime types。
 ---
 
@@ -33,7 +33,7 @@ const port = 3001;
 // /images 路徑去 fetch 隨便一張圖片
 app.get('/images', async (req, res) => {
   const { data } = await axios.get(
-    'https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_3/v1645721429/rdaleorg/qblyqgwortzxvb3q4wct/testing.jpg',
+    'https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_3/v1645721429/rdaleorg/qblyqgwortzxvb3q4wct/testing.webp',
     {
       // 用 axios fetch 時，記得將 responseType 改為 arraybuffer
       responseType: 'arraybuffer'

@@ -5,13 +5,13 @@ categories: Frontend
 tags:
   - JavaScript
   - Node.js
-cover: /images/cover/compress.jpg
+cover: /images/cover/compress.webp
 description: 在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短加載時間。
 ---
 
 假設今天前端工程師對於框架較不熟悉，採用**原生寫法**，**不套用任何框架**，**沒有用任何打包工具**，HTML、CSS、JavaScript 都是用最原生的寫法，目錄結構大致如下
 
-![file-structure](/images/posts/minify-web-files/file-structure.png)
+![file-structure](/images/posts/minify-web-files/file-structure.webp)
 
 我們在拿到這包檔案後，可以協助前端工程師用一些簡單快速的方法來壓縮 HTML、CSS、JavaScript，節省一些檔案在網路傳輸時的流量
 

@@ -4,7 +4,7 @@ date: 2024-11-27 15:29:42
 categories: Backend
 tags:
   - PHP
-cover: /images/cover/php.jpg
+cover: /images/cover/php.webp
 description: PHP GD 是一個功能強大的圖像處理套件，適合用於動態生成、修改和處理圖像。在這篇教學中，我們將介紹如何使用 GD 套件，並展示其基本功能。
 ---
 
@@ -92,7 +92,7 @@ imagestring($image, 5, 200, 150, 'Hello GD!', $black);
 - `imagejpeg(image, path, quality)`
 
 ```PHP
-imagepng($image, './my-pic.png');
+imagepng($image, './my-pic.webp');
 ```
 
 ## 釋放資源

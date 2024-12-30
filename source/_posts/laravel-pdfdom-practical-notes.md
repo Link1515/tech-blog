@@ -5,7 +5,7 @@ categories: Backend
 tags:
   - Laravel
   - PHP
-cover: /images/cover/laravel_pdf.jpg
+cover: /images/cover/laravel_pdf.webp
 description: 本文章詳細記錄了使用 laravel-dompdf 套件的一些實用技巧，幫助開發者更輕鬆地生成 PDF 文件。不管是剛接觸這個套件的新手，還是已經有經驗的開發者，都可以從中找到實用的建議，讓處理 PDF 文件變得更輕鬆。
 ---
 
@@ -103,7 +103,7 @@ table {
 
 下圖為頁首說明圖，而頁尾也是相同概念
 
-![pdf_header](/images/posts/laravel-pdfdom-practical-notes/pdf_header.png)
+![pdf_header](/images/posts/laravel-pdfdom-practical-notes/pdf_header.webp)
 
 ## 頁碼
 

@@ -4,7 +4,7 @@ date: 2024-01-27 20:36:47
 categories: Frontend
 tags:
     - JavaScript
-cover: /images/cover/file_upload.jpg
+cover: /images/cover/file_upload.webp
 description: 製作網頁上傳區域，結合拖曳及點擊選擇檔案功能，提升使用者體驗。透過直覺的拖曳動作或傳統的點擊方式，輕鬆選取檔案，使整個上傳流程更為靈活且方便，凸顯網頁互動設計的創新與便利性。
 ---
 

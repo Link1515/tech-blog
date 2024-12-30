@@ -5,7 +5,7 @@ categories: Frontend
 tags:
     - CSS
     - SVG
-cover: /images/cover/CSS_SVG.jpg
+cover: /images/cover/CSS_SVG.webp
 description: 這篇文章將帶你了解 SVG 圖片與 CSS 的強大結合，學習如何透過 CSS 來操控 SVG 圖形的樣式，賦予你的網頁設計更多彈性和創意。
 ---
 

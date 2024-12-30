@@ -4,7 +4,7 @@ date: 2024-02-03 11:39:15
 categories: Frontend
 tags:
   - JavaScript
-cover: /images/cover/file_upload.jpg
+cover: /images/cover/file_upload.webp
 description: 網頁前端上傳圖片預覽是提升使用者體驗的重要功能之一，在檔案上傳的情境中，很常是要上傳圖片檔案，本篇文章將來實作圖片上傳後產生該圖片的預覽圖。使用者上傳圖片，透過 File API 讀取該檔案，並轉換成 DataURL，接著將該 URL 設定為圖片元素的 src 屬性，即可實現即時預覽。
 ---
 

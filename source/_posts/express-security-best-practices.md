@@ -4,7 +4,7 @@ date: 2024-03-10 14:46:49
 categories: Backend
 tags:
     - Express
-cover: /images/cover/express.jpg
+cover: /images/cover/express.webp
 description: '本文章參考 Express 官方文件中的 Production Best Practices: Security，逐項列出官方推薦的最佳實踐，確保我們在開發 Express 應用時，能有效的防範資安漏洞'
 ---
 

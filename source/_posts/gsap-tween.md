@@ -4,7 +4,7 @@ date: 2023-12-23 20:40:55
 categories: Frontend
 tags:
     - GSAP
-cover: /images/cover/gsap.jpg
+cover: /images/cover/gsap.webp
 description: 在 GSAP 中，可以將 Tween 視為一個 CSS 屬性設定器，我們可以在指定元素上，賦予起始屬性或終止屬性，隨後 GSAP 就會幫我們把動畫產生出來。
 ---
 

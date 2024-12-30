@@ -95,11 +95,11 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: hexo-bootstrap-theme # https://github.com/Link1515/hexo-bootstrap-theme
 theme_config:
-  share_image: /images/share.jpg
+  share_image: /images/share.webp
   favicon: /images/favicon.ico
   logo:
     title: Lynk is here
-    image: /images/logo.png
+    image: /images/logo.webp
   post:
     show_cover: true
     show_description: true

@@ -4,7 +4,7 @@ date: 2024-01-06 09:39:41
 categories: Frontend
 tags:
     - GSAP
-cover: /images/cover/gsap.jpg
+cover: /images/cover/gsap.webp
 description: ScrollTrigger 是 GSAP 的一個擴充套件，用來製作滑鼠滾動觸發動畫。ScrollTrigger 提供強大的滾動控制，讓網頁動畫輕鬆實現。透過簡單的 API，你能精確掌握動畫觸發點、速度和方向，呈現更流暢、自然的視覺效果。
 ---
 

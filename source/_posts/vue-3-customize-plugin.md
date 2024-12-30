@@ -5,7 +5,7 @@ categories: Frontend
 tags:
     - Vue
     - TypeScript
-cover: /images/cover/vue.jpg
+cover: /images/cover/vue.webp
 description: 在 Vue 3 中，自製 plugin 是一種擴充 Vue 功能的方式。透過自製 plugin，我們可以向 Vue 添加新的全局方法、屬性或指令。在本篇文章中，我們將介紹如何自製一個 $ 方法。
 ---
 

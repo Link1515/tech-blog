@@ -5,7 +5,7 @@ categories: Backend
 tags:
     - PHP
     - Basic Auth
-cover: /images/cover/basic-auth.jpg
+cover: /images/cover/basic-auth.webp
 description: Basic Auth 是 HTTP 協定的一種認證機制，允許伺服器要求使用者提供使用者名稱和密碼才能存取受保護的資源。本文章將先講解 Basic Auth 整體流程，再透過 PHP 進行實作。
 ---
 
@@ -25,7 +25,7 @@ description: Basic Auth 是 HTTP 協定的一種認證機制，允許伺服器�
 
 直接在 header 上加入 `WWW-Authenticate: Basic realm="My Realm"`，也加入 401 的 Http Status Code
 
-![auth-challenge](/images/posts/basic-auth-by-php/auth-challenge.jpg)
+![auth-challenge](/images/posts/basic-auth-by-php/auth-challenge.webp)
 
 ```PHP
 header('WWW-Authenticate: Basic realm="My Realm"');
@@ -41,7 +41,7 @@ http_response_code(401);
 
 我們在瀏覽器上輸入此帳密進行登入，並透過 `F12` 開發者工具的 `Network` 標籤查看請求
 
-![auth-challenge](/images/posts/basic-auth-by-php/request.jpg)
+![auth-challenge](/images/posts/basic-auth-by-php/request.webp)
 
 在 Response Headers 發現我們帶的 `Www-Authenticate`，以及在 Request Headers 瀏覽器帶上的 `Authorization: Basic dXNlcjEyMzQ6cGFzczEyMzQ=`
 
@@ -49,7 +49,7 @@ http_response_code(401);
 
 [Base64 Decode](https://emn178.github.io/online-tools/base64_decode.html)
 
-![base64-decode](/images/posts/basic-auth-by-php/base64-decode.jpg)
+![base64-decode](/images/posts/basic-auth-by-php/base64-decode.webp)
 
 ## 完整伺服器驗證帳密 
 

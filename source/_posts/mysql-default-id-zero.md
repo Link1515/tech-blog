@@ -4,7 +4,7 @@ date: 2024-06-24 16:55:42
 categories: Backend
 tags:
     - MySQL
-cover: /images/cover/mysql-id-0.jpg
+cover: /images/cover/mysql-id-0.webp
 description: '最近在工作中，同事操作資料庫進行 INSERT 操作時，每次新增的 id 都會被設為 0。起初我們以為這是 ORM 的 Bug，因此決定更換另一款 ORM；然而，即使更換後問題依舊存在。這時我們開始懷疑並非 ORM 的問題。後來我在本地端進行測試時，一切都運行正常，但在使用遠端資料庫時，id 仍然被設置為 0。顯然，這是由於遠端資料庫的某些設定所導致的。本文將記錄我們如何解決這個問題。'
 ---
 

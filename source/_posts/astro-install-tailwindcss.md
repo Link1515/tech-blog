@@ -6,7 +6,7 @@ tags:
     - Astro
     - Prettier
     - TailwindCSS
-cover: /images/cover/astro_x_tailwindcss.jpg
+cover: /images/cover/astro_x_tailwindcss.webp
 description: 本文章講解如何在 Astro 專案中安裝 TailwindCSS 套件，以及使用 Prettier 來做 class 的自動排版。
 ---
 

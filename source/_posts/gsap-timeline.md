@@ -4,7 +4,7 @@ date: 2024-01-02 19:59:06
 categories: Frontend
 tags:
     - GSAP
-cover: /images/cover/gsap.jpg
+cover: /images/cover/gsap.webp
 description: Timeline 是 Tween 或者其他 Timeline 的容器，讓我們可以更簡單的製作複雜的動畫。舉例來說，如果沒有 Timeline 我們就只能用 Tween 上的 delay 屬性來決定動畫的先後，但透過 Timeline，我們就可以直接指定動畫的先後順序
 ---
 
