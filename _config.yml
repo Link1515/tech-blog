@@ -103,7 +103,7 @@ theme_config:
   post:
     show_cover: true
     show_description: true
-  footer_content: © Copyright 2024 By Terry Lin
+  footer_content: © Copyright 2025 By Terry Lin
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
