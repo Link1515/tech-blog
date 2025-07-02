@@ -63,7 +63,7 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 
 ![claude-go-setting](/images/posts/mcp-by-claude/claude-go-setting.png)
 
-選擇左方 develop 頁籤，並點擊 Edit Config 開啟設定文件所在的資料夾
+選擇左方 Developer 頁籤，並點擊 Edit Config 開啟設定文件所在的資料夾
 
 ![claude-setting-panel](/images/posts/mcp-by-claude/claude-setting-panel.png)
 
@@ -81,7 +81,7 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 
 > 不要用右上角的 x 關閉，因為此時 Claude Desktop 仍會持續運行，無法更新 MCP 設定
 
-重開 Claude Desktop 後，去到設定的 Develop 頁籤會看到出現我們設定的 MCP server 名稱，即 filesystem，就代表設定成功
+重開 Claude Desktop 後，去到設定的 Developer 頁籤會看到出現我們設定的 MCP server 名稱，即 filesystem，就代表設定成功
 
 ![claude-setting-success](/images/posts/mcp-by-claude/claude-setting-success.png)
 
