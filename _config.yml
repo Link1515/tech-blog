@@ -111,6 +111,6 @@ deploy:
   type: ''
 
 analytics:
-    google_analytics:
-        enable: true
-        measurement_id: G-QE7KV2SLXB 
+  google_analytics:
+    enable: true
+    measurement_id: G-QE7KV2SLXB
