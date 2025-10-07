@@ -29,6 +29,8 @@ description: System.Text.Json 是 .NET 6 之後推薦使用的 JSON 轉換工具
 }
 ```
 
+### class 宣告
+
 要將此 JSON 轉為 C# class，我們就先定義出對應的 class
 
 > 可以透過 [JSON2CSharp](https://json2csharp.com/) 線上工具快速將 JSON 轉換為 C# class
@@ -50,6 +52,8 @@ public class Owner
     public required string name { get; set; }
 }
 ```
+
+### 使用
 
 再來就可以直接調用 `JsonSerializer.Deserialize()` 帶入要轉換的類型與 JSON 字串
 
@@ -100,7 +104,9 @@ JSON 資料有多型，在不同類型有特定屬性情況下，如以下範例
 }
 ```
 
-有 `image` 與 `text` 兩種 type，`image` 有 `url` 屬性，`text` 有 `text` 屬性，這種情境適合使用註釋轉換
+Message 有 `image` 與 `text` 兩種 type，`image` 有 `url` 屬性，`text` 有 `text` 屬性，這種情境適合使用註釋轉換
+
+### class 宣告
 
 先定義好對應的 class，並加入 `JsonPolymorphic` 和 `JsonDerivedType` 註釋
 `JsonPolymorphic` 標示用哪個 JSON 屬性進行多型轉換
@@ -131,7 +137,7 @@ public class ImageMessage : Message
 }
 ```
 
-定義完成後，就可以直接使用
+### 使用
 
 ```csharp
 var json = @"
@@ -169,7 +175,7 @@ var jsonStr = JsonSerializer.Serialize(jsonClass);
 }
 ```
 
-此處一樣先宣告 class
+### class 宣告
 
 ```csharp
 public class Message
@@ -253,6 +259,8 @@ class MessageConverter : JsonConverter<Message>
 > }
 > ```
 
+### 使用
+
 使用時，設定 `JsonSerializerOptions` 並傳入 `JsonSerializer.Deserialize()` 或 `JsonSerializer.Serialize()` 方法中
 
 ```csharp
@@ -279,9 +287,9 @@ var jsonClass = JsonSerializer.Deserialize<List<Message>>(json, options);
 var jsonStr = JsonSerializer.Serialize(jsonClass, options);
 ```
 
-## 常見問題
+## 常見問題: 欄位 Field 沒有被轉換
 
-`JsonSerializer.Serialize()` 只會轉換屬性 (property)，不會轉換欄位 (field)
+`System.Text.Json` 預設只會轉換屬性 (property)，不會轉換欄位 (field)
 
 ```csharp
 public class User
@@ -292,5 +300,28 @@ public class User
     public required string name { get; set; }
     // 欄位 (field) 不會被轉換
     public required string name2;
+}
+```
+
+如果要轉換欄位有兩種方法
+
+1. options 中設定 `IncludeFields = true`
+
+```csharp
+var options = new JsonSerializerOptions
+{
+    IncludeFields = true
+};
+var jsonClass = JsonSerializer.Deserialize<User>(json, options);
+var jsonStr = JsonSerializer.Serialize(jsonClass, options);
+```
+
+2. 欄位加上 `JsonInclude` 註釋
+
+```csharp
+public class User
+{
+    [JsonInclude]
+    public required string name;
 }
 ```
