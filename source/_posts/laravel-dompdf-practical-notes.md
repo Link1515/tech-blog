@@ -1,5 +1,5 @@
 ---
-title: Laravel-pdfdom 實用筆記
+title: Laravel-dompdf 實用筆記
 date: 2024-12-25 14:00:48
 categories: Backend
 tags:
@@ -13,7 +13,7 @@ description: 本文章詳細記錄了使用 laravel-dompdf 套件的一些實用
 
 ## 設定預設樣式
 
-產出 PDF 之前我建議先做一些設定一些預設樣式，能確保產生的 PDF 符合預期
+產出 PDF 之前，我建議先設定一些預設樣式，能確保產生的 PDF 符合預期
 
 ```CSS
 /** 確保文字正確換行 */
@@ -92,10 +92,10 @@ table {
 
 .pdfFooter {
     position: fixed;
-    bottom: -60px; /** 將頁首向下 60px 填補邊界 */
+    bottom: -60px; /** 將頁尾向下 60px 填補邊界 */
     left: 0px;
     right: 0px;
-    height: 50px;  /** 頁首設定高度 50px，底上留 10px 避免內文直接貼齊頁尾 */
+    height: 50px;  /** 頁尾設定高度 50px，上方留 10px 避免內文直接貼齊頁尾 */
     text-align: center;
     font-size: 12px;
 }
@@ -103,11 +103,11 @@ table {
 
 下圖為頁首說明圖，而頁尾也是相同概念
 
-![pdf_header](/images/posts/laravel-pdfdom-practical-notes/pdf_header.webp)
+![pdf_header](/images/posts/laravel-dompdf-practical-notes/pdf_header.webp)
 
 ## 頁碼
 
-頁碼使用 [CSS counters](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)，counter's value 為 `page`，並可透過 before 偽元素設定頁碼文字
+頁碼使用 [CSS counters](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)，counter 的值為 `page`，並可透過 before 偽元素設定頁碼文字
 
 ```CSS
 .page-number:before {
@@ -155,9 +155,9 @@ table {
 <table class="avoid-break">
     <thead>
         <tr>
-            <th>編號</td>
-            <th>名稱</td>
-            <th>描述</td>
+            <th>編號</th>
+            <th>名稱</th>
+            <th>描述</th>
         </tr>
     </thead>
     <tbody>
@@ -177,7 +177,7 @@ table {
 
 ## 圖片顯示異常
 
-使用 pdfdom 套件，圖片可以直接用 HTML 的 img 標籤引入，但有時候會因請求時間過長等原因造成死圖，此時我們可以將圖片轉換成 base64 後，再放到 img 標籤，就可以避免死圖
+使用 dompdf 套件，圖片可以直接用 HTML 的 img 標籤引入，但有時候會因請求時間過長等原因造成死圖，此時我們可以將圖片轉換成 base64 後，再放到 img 標籤，就可以避免死圖
 
 先在模板上定義 `imageToBase64()` 函數，協助我們將圖片連結轉為 base64
 

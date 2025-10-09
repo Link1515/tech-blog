@@ -29,7 +29,7 @@ interface Options {
 export const helloPlugin: Plugin = {
   install: (app: App, options: Options) => {
     // 在 app 上放一個全局的 $hello 方法
-    // $hello 方法可以傳入一個名字，並進行拼串
+    // $hello 方法可以傳入一個名字，並進行字串拼接
     app.config.globalProperties.$hello = (name: string) =>
       `hello, ${name} ${options.emoji}`;
   }

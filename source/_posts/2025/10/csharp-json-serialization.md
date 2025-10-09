@@ -236,7 +236,7 @@ class MessageConverter : JsonConverter<Message>
                 break;
 
             case ImageMessage imageMessage:
-                writer.WriteString("type", "text");
+                writer.WriteString("type", "image");
                 writer.WriteNumber("target", imageMessage.target);
                 writer.WriteString("url", imageMessage.url);
                 break;

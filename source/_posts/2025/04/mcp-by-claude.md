@@ -17,11 +17,11 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 
 ## 安裝 Node.js
 
-大部分的 MCP Server 都需要使用到 Node.js 或者 Python，此範例會使用到 Node.js，我們可以先[安裝 Node.js](https://nodejs.org/en)，如果讀者想要使用的 MCP server 是使用 Python 則需要另外[安裝 Python](https://www.python.org/downloads/)
+大部分的 MCP Server 都需要使用到 Node.js 或者 Python，此範例會使用到 Node.js，我們可以先[安裝 Node.js](https://nodejs.org/en)，如果讀者想要使用的 MCP Server 是使用 Python 則需要另外[安裝 Python](https://www.python.org/downloads/)
 
 ## 選擇你想使用的 MCP Server
 
-目前有許多應用都有對應的 MCP Server，例如: GitHub、Google 雲端、Gmail 等，我們可以到 [MCP servers](https://github.com/modelcontextprotocol/servers) 找尋自己想要使用的服務，此處我們以最簡單的系統檔案 (File System) 為例
+目前有許多應用都有對應的 MCP Server，例如: GitHub、Google 雲端、Gmail 等，我們可以到 [MCP Servers](https://github.com/modelcontextprotocol/servers) 找尋自己想要使用的服務，此處我們以最簡單的系統檔案 (File System) 為例
 
 ![select-filesystem-mcp](/images/posts/mcp-by-claude/select-filesystem-mcp.png)
 
@@ -33,7 +33,7 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 -   Search files
 -   Get file metadata
 
-滾到下面會看到使用 npx 指令的 JSON，代表要使用這個 MCP Server，就要安裝 Node.js，並使用 npx 的指令啟動服務。
+滾到下面會看到使用 npx 的 JSON 設定，代表要使用這個 MCP Server，就要安裝 Node.js，並使用 npx 的指令啟動服務。
 
 > 要使用不同 MCP 服務時，也是一樣找出帶有指令的 JSON
 
@@ -71,7 +71,7 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 
 ![claude-setting-directory](/images/posts/mcp-by-claude/claude-setting-directory.png)
 
-將剛剛複製的 JSON 貼上，並且將最後的參數改成要操作的資料夾，以我為例，我希望能在 `D:\tmp` 資料夾下進行增改查，就設定此資料夾
+將剛剛複製的 JSON 貼上，並且將最後的參數改成要操作的資料夾，以我為例，我希望能在 `D:\tmp` 資料夾下進行增改查，就設定為此資料夾
 
 ![claude-setting-json](/images/posts/mcp-by-claude/claude-setting-json.png)
 
@@ -81,7 +81,7 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 
 > 不要用右上角的 x 關閉，因為此時 Claude Desktop 仍會持續運行，無法更新 MCP 設定
 
-重開 Claude Desktop 後，去到設定的 Developer 頁籤會看到出現我們設定的 MCP server 名稱，即 filesystem，就代表設定成功
+重開 Claude Desktop 後，去到設定的 Developer 頁籤會看到出現我們設定的 MCP Server 名稱，即 filesystem，就代表設定成功
 
 ![claude-setting-success](/images/posts/mcp-by-claude/claude-setting-success.png)
 
@@ -94,12 +94,12 @@ description: 探索如何在 Claude Desktop 中配置 MCP Servers，打造更高
 成功設定並啟用 MCP Server 後，就可以直接透過聊天的方式操作對應的服務，我用以下 prompt 為例，進行資料夾與檔案的操作
 
 ```
-在 D:\tmp 下創建一個資料夾，名稱為 test，並在此資料夾中創建一個 READMD.md 檔案，內容為:
+在 D:\tmp 下創建一個資料夾，名稱為 test，並在此資料夾中創建一個 README.md 檔案，內容為:
 
 # 測試 MCP 成功!
 ```
 
-開始後，Clade 會去檢查有沒有對應的 MCP tools 可以使用，如果有，就會向你請求對應的權限。這裡他會詢問
+開始後，Claude 會去檢查有沒有對應的 MCP tools 可以使用，如果有，就會向你請求對應的權限。這裡他會詢問
 
 -   是否可以查看目錄內有什麼
 -   是否可以創建資料夾

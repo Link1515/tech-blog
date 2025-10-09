@@ -7,7 +7,7 @@ tags:
     - Prettier
     - TailwindCSS
 cover: /images/cover/astro_x_tailwindcss.webp
-description: 本文章講解如何在 Astro 專案中安裝 TailwindCSS 套件，以及使用 Prettier 來做 class 的自動排版。
+description: 本文章講解如何在 Astro 專案中安裝 TailwindCSS 套件，以及使用 Prettier 自動排版 class。
 ---
 
 ## Astro 中安裝 TailwindCSS
@@ -91,7 +91,7 @@ pnpm i -D prettier prettier-plugin-astro
 
 ## TailwindCSS class 的自動排版
 
-Prettier 生效以後，再來我們來讓 TailwindCSS class 的自動排版生效，此處使用 TailwindCSS 官方提供的 [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+Prettier 生效以後，接著讓 TailwindCSS class 的自動排版生效，此處使用 TailwindCSS 官方提供的 [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 
 ### 安裝套件
 
@@ -124,6 +124,6 @@ pnpm i -D prettier-plugin-tailwindcss
 
 `prettier-plugin-tailwindcss` 預設會以根目錄下的 `tailwind.config.js` (檔名與副檔名必須一樣) 來檢查有使用 TailwindCSS 的文件，如果沒有或者找不到，自動排版就不會生效
 
-我在創建專案時，透過 `pnpm astro add tailwind` 自動幫我創建的 TailwindCSS 配置文件為 `tailwind.config.mjs`，記得要將副檔名更正，即改名為 `tailwind.config.js`
+我在創建專案時，透過 `pnpm astro add tailwind` 自動幫我創建的 TailwindCSS 配置文件為 `tailwind.config.mjs`，記得要將副檔名更正為 `tailwind.config.js`
 
 `prettier-plugin-tailwindcss` 也提供自定義 TailwindCSS 配置文件位置，可以參考[此處](https://github.com/tailwindlabs/prettier-plugin-tailwindcss#customizing-your-tailwind-config-path)

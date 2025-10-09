@@ -38,13 +38,13 @@ gsap.to('.box', { rotation: 360, duration: 5 });
 
 - CSS 樣式
     - 大部分的 CSS 樣式都是直接用小駝峰的形式(ex: `backgroundColor`)，使用在此參數的物件內
-    - `transfrom` 相關的樣式會有一些比較簡單的寫法，如: `translateX` 可以直接用 `x`，`translateY` 可以直接用 `y`
+    - `transform` 相關的樣式會有一些比較簡單的寫法，如: `translateX` 可以直接用 `x`，`translateY` 可以直接用 `y`
     - 如果要做淡入淡出的動畫，可以使用 GSAP 提供的 `autoAlpha` 屬性，可以避免掉直接使用 `opacity` 與 `visibility` 產生的動畫缺陷
 - 動畫相關設定 (以下舉例幾個常用到的設定)
     - `duration` 動畫時間長度 (單位為秒)
     - `delay` 動畫延遲時間長度 (單位為秒)
     - `ease` 動畫的 timing function，GSAP 另外提供了許多種參數，可參考 [Ease Visualizer](https://gsap.com/docs/v3/Eases/)
-    - `paused` 動畫暫停 (動畫將不會自動撥放)
+    - `paused` 動畫暫停 (動畫將不會自動播放)
     - `repeat` 動畫重複次數，-1 代表無限多次
     - `yoyo` 動畫重複時，會再由結束屬性回到起始屬性
 - 事件回調函數
@@ -54,11 +54,11 @@ gsap.to('.box', { rotation: 360, duration: 5 });
 
 ## 操作 GSAP Tween
 
-我們除了直接使 Tween 的動畫撥放，也可以像是影片那樣來操作動畫
+我們除了直接使 Tween 的動畫播放，也可以像是影片那樣來操作動畫
 
 ```javascript
 // gsap.to() 會返回一個 Tween 的實例，透過這個實例就可以做各種操作
-// 先透過 paused: true 不自動撥放 tween
+// 先透過 paused: true 不自動播放 tween
 const tween = gsap.to('.box', { rotation: 360, duration: 5, paused: true });
 
 // 將 tween 的時間移動到 2 秒
@@ -72,5 +72,5 @@ tween.play();
 - `play()` 播放
 - `pause()` 暫停
 - `reverse()` 倒帶
-- `restart()` 重頭撥放
+- `restart()` 重頭播放
 - `seek()` 跳到指定秒數

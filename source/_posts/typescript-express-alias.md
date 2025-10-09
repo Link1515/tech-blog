@@ -29,7 +29,7 @@ pnpm i -D tsconfig-paths
 - 配置需要的路徑別名
   - 注意: 配置 `paths` 就一定要配置 `baseUrl`
   - 我們將 `baseUrl` 設為 `.`，即當前專案的根目錄
-  - `paths` 配置一個映射到 `middeware` 目錄的路徑別名 `@middleware`
+  - `paths` 配置一個映射到 `middleware` 目錄的路徑別名 `@middleware`
 
 ```json
 {
@@ -90,7 +90,7 @@ app.listen(port, () => {
 });
 ```
 
-執行 `pnpm dev` 啟用開發模式，開起 `http://localhost:3000` 看看終端機有沒有印出 alias enabled!
+執行 `pnpm dev` 啟用開發模式，開啟 `http://localhost:3000` 看看終端機有沒有印出 alias enabled!
 
 至此，我們完成了開發環境下的路徑別名
 
@@ -103,7 +103,7 @@ pnpm start
 
 會出現 `MODULE_NOT_FOUND` 的錯誤
 
-因為在正式環境下，我們是使用 `node` (而不是 `ts-node`)，所以剛剛的設定都會無效，`node` 解析 `@middleware/testMiddleware` 會認為是在 `node_module` 中的套件，並報出找不到套件的錯誤，對此，我們還要進行其他設定
+因為在正式環境下，我們是使用 `node` (而不是 `ts-node`)，所以剛剛的設定都會無效，`node` 解析 `@middleware/testMiddleware` 會認為是在 `node_module` 中的套件，並報出找不到套件的錯誤，對此，我們還要進行額外的設定
 
 ## 使路徑別名在正式環境生效
 
@@ -117,7 +117,7 @@ pnpm i module-alias
 
 ### 配置 package.json
 
-此處需要自行配置 `build` 出來後的資料夾目錄。當前案例，我的 `middleware` 資料夾 `build` 完以後會放到 `dist/middleware`
+此處需要自行配置 `build` 後的輸出目錄。當前案例，我的 `middleware` 資料夾 `build` 完以後會放到 `dist/middleware`
 
 ```json
 "_moduleAliases": {

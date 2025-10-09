@@ -6,12 +6,12 @@ tags:
     - Node.js
     - TLS
 cover: /images/cover/tls.webp
-description: 隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來起一個 TLS Server ，並使用我們自己產生的憑證來進行 demo
+description: 隨著網路安全的日益重要，使用 TLS 加密資料傳輸已成為必不可少的措施。TLS 是一種安全協議，可確保資料在傳輸過程中不被竊聽或篡改。本文章將以 Node.js 來建立一個 TLS Server ，並使用我們自己產生的憑證來進行示範
 ---
 
 ## 產生 Key 與 Certificate
 
-在使用 `TLS` 協議時，server 需要一個 `key` 進行資料加密，還需要一個 `certificate` (憑證) 確保 server 是被認證的。通常 `certificate` 是由機構認證的，如: Let’s Encrypt、Comodo、DigiCer … 等，在此範例中，我們使用自簽 `certificate` 來進行演示
+在使用 `TLS` 協議時，server 需要一個 `key` 進行資料加密，還需要一個 `certificate` (憑證) 確保 server 是被認證的。通常 `certificate` 是由機構認證的，如: Let’s Encrypt、Comodo、DigiCert … 等，在此範例中，我們使用自簽 `certificate` 來進行演示
 
 首先要先確認設備上已經有 [openssl](https://www.openssl.org/)
 
@@ -27,7 +27,7 @@ openssl -v
 openssl genrsa -out server-key.pem 2048
 ```
 
-透過 `private key` 也可以取得 `public key`，而 `public key` 會一起放在 `certificate` 中，所以我們無需特別去產 `public key` 檔案
+透過 `private key` 也可以取得 `public key`，而 `public key` 會一起放在 `certificate` 中，所以我們無需特別去產生 `public key` 檔案
 
 ```Bash
 # 產 public key 的方法，可以不用執行

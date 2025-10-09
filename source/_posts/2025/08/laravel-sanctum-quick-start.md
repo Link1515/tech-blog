@@ -9,7 +9,7 @@ cover: /images/cover/laravel.webp
 description: 透過 Laravel Sanctum，快速實作安全、輕量的登入功能！本文詳細教你從安裝、設定到 API 驗證流程，一步步完成 Laravel 基本登入系統，適合新手開發者快速上手。
 ---
 
-> 本文使用 laravel 12 進行示範
+> 本文使用 Laravel 12 進行示範
 
 ## 安裝 Sanctum
 
@@ -26,7 +26,7 @@ Would you like to run all pending database migrations? (yes/no)
 
 > 如果想知道 migrations 做了什麼修改，可以到 `database\migrations` 目錄中查看自動產生的檔案
 
-完成後，會請你到 User 類中加入 `HasApiTokens` trait
+完成後，會請你到 User 模型中加入 `HasApiTokens` trait
 
 ```
 INFO  API scaffolding installed.
@@ -135,7 +135,7 @@ Route::middleware('auth:sanctum')->group(function () {
 php artisan serve
 ```
 
-> 常見問題: 如果在打註冊與登入 API，都是返回 html 頁面，記得檢查在 reqeust header 是否有帶上 `Accept: application/json`
+> 常見問題: 如果在打註冊與登入 API，都是返回 html 頁面，記得檢查在 request header 是否有帶上 `Accept: application/json`
 
 ### /api/register 註冊用戶
 

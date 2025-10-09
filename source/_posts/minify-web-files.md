@@ -6,14 +6,14 @@ tags:
   - JavaScript
   - Node.js
 cover: /images/cover/compress.webp
-description: 在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短加載時間。
+description: 在網站開發中，壓縮 HTML、CSS 和 JavaScript 是提升性能的關鍵步驟之一。這篇文章介紹了幾個實用的套件，能有效減少檔案大小，縮短載入時間。
 ---
 
 假設今天前端工程師對於框架較不熟悉，採用**原生寫法**，**不套用任何框架**，**沒有用任何打包工具**，HTML、CSS、JavaScript 都是用最原生的寫法，目錄結構大致如下
 
 ![file-structure](/images/posts/minify-web-files/file-structure.webp)
 
-我們在拿到這包檔案後，可以協助前端工程師用一些簡單快速的方法來壓縮 HTML、CSS、JavaScript，節省一些檔案在網路傳輸時的流量
+我們在拿到這包檔案後，可以協助前端工程師用一些簡單快速的方法來壓縮 HTML、CSS、JavaScript，節省檔案在網路傳輸時的流量
 
 ## 壓縮 HTML
 
@@ -28,7 +28,7 @@ import fs from 'fs/promises';
 import { glob } from 'glob';
 import { minify } from 'html-minifier-terser';
 
-// 取得所有在 public 資料夾下的 HTML 檔案
+// 取得所有在 public 目錄下的 HTML 檔案
 const htmlFiles = await glob('public/**/*.html');
 
 htmlFiles.forEach(async file => {
@@ -115,7 +115,7 @@ function add(a, b) {
 }
 ```
 
-這樣的情況下，`esbuild` 會認為這是沒有使用到的函數，預設會去除這些函數 (`tree shake`)。解決辦法是把這些要在全域使用的函數，手動放到 `window` 上，最終使用上結果是一樣的，但不會被 `esbuild` 去除
+這樣的情況下，`esbuild` 會認為該函數未被使用，預設會去除這些函數 (`tree shake`)。解決辦法是把這些要在全域使用的函數，手動放到 `window` 上，最終使用上結果是一樣的，但不會被 `esbuild` 去除
 
 ```JavaScript
 // utils.js

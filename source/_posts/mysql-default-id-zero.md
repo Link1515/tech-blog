@@ -35,7 +35,7 @@ SELECT @@sql_mode;
 -- ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_AUTO_VALUE_ON_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
 ```
 
-要取消此設定，有兩種方法，一種是到遠端機器上設定並重新啟動資料庫，另一種就是在每次連線時進行設定，這裡演示後者。方法也比較簡單，就是在建立連線後，直接設定 `sql_mode`，將 `NO_AUTO_VALUE_ON_ZERO` 去除
+要取消此設定，有兩種方法，一種是到遠端機器上設定並重新啟動資料庫，另一種就是在每次連線時進行設定，這裡示範後者。方法也比較簡單，就是在建立連線後，直接設定 `sql_mode`，將 `NO_AUTO_VALUE_ON_ZERO` 去除
 
 ```SQL
 SET @@sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';

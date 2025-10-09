@@ -12,7 +12,7 @@ description: 本篇文章介紹如何在 JavaScript 或 TypeScript 專案中，�
 
 ## 基本的 HTML + JavaScript Debug
 
-首先先介紹基本的 HTML + JavaScript 在 VSCode 上 Debug 的方法，這裡說的基本是代表沒有透過 webpack、vite 等打包工具進行加工，而是直接自己在 HTML 中透過 `<script>` 標籤引入 JavaScript 原始碼，例如以下形式:
+首先介紹基本的 HTML + JavaScript 在 VSCode 上 Debug 的方法，這裡說的"基本"是代表沒有透過 webpack、vite 等打包工具進行加工，而是直接自己在 HTML 中透過 `<script>` 標籤引入 JavaScript 原始碼，例如以下形式:
 
 ```HTML
 <html>
@@ -35,7 +35,7 @@ console.log('成功!');
 
 ![setup-project](/images/posts/debug-frontend-code-by-vscode/setup-project.png)
 
-選擇到 Run and Debug 頁籤，點擊 create a launch.json file，創建一個 Debug 的配置文件 `.vscode/launch.json`
+切換到 Run and Debug 頁籤，點擊 create a launch.json file，創建一個 Debug 的配置文件 `.vscode/launch.json`
 
 ![create-launch-file](/images/posts/debug-frontend-code-by-vscode/create-launch-file.png)
 
@@ -51,15 +51,15 @@ console.log('成功!');
 
 ![add-breakpoint](/images/posts/debug-frontend-code-by-vscode/add-breakpoint.png)
 
-看到自動開啟瀏覽器，並且程式停在斷點，就代表成功囉
+看到自動開啟瀏覽器，並且程式停在斷點，就代表設定成功
 
 ![start-debug](/images/posts/debug-frontend-code-by-vscode/start-debug.png)
 
 ## 已啟動 Local Server 的網站 Debug
 
-先前展示的方式，主要針對單個 HTML 檔案的 Debug，但有時候我們已經透過其他工具開啟了本地 server，例如透過 Apache server、nodejs server 等，此時我們也可以修改配置，針對特定的網站根目錄與網址進行 Debug
+先前展示的方式，主要針對單個 HTML 檔案的 Debug，但有時候我們已經透過其他工具開啟了本地 server，例如透過 Apache server、Node.js server 等，此時我們也可以修改配置，針對特定的網站根目錄與網址進行 Debug
 
-先啟動 local server，這裡使用 [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 套件，起一個 `localhost:5500`
+先啟動 local server，這裡使用 [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 套件，起動一個位於 `localhost:5500` 的伺服器
 
 ![open-with-live-server](/images/posts/debug-frontend-code-by-vscode/open-with-live-server.png)
 
@@ -75,7 +75,7 @@ console.log('成功!');
 },
 ```
 
-再來一樣點擊 Debug 頁籤中，上方的綠色開始按鈕，開始 Debug
+接著點擊 Debug 頁籤中，上方的綠色開始按鈕，開始 Debug
 
 ![add-breakpoint](/images/posts/debug-frontend-code-by-vscode/add-breakpoint.png)
 

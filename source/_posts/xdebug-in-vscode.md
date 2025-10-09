@@ -7,7 +7,7 @@ tags:
     - Xdebug
     - VSCode
 cover: /images/cover/vscode_xdebug.webp
-description: 文詳細介紹了如何安裝和配置 Xdebug，並將其與 VSCode 整合以實現高效的除錯流程，無論是初學者還是有經驗的開發者，都能因此提升開發效率。
+description: 本文詳細介紹了如何安裝和配置 Xdebug，並將其與 VSCode 整合以實現高效的除錯流程，無論是初學者還是有經驗的開發者，都能因此提升開發效率。
 ---
 
 ## 安裝 Xdebug
@@ -36,7 +36,7 @@ pecl install xdebug
 
 ### Windows
 
-Windows 用戶建議可以使用，Xdebug 提供的 [Installation Wizard](https://xdebug.org/wizard) 進行安裝，步驟如下
+Windows 用戶建議可以使用 Xdebug 提供的 [Installation Wizard](https://xdebug.org/wizard) 進行安裝，步驟如下
 
 1. 在 Powershell 中輸入 `php -ini | clip`，這行指令會複製你當前 PHP 的相關資訊
 
@@ -52,7 +52,7 @@ php -ini | clip
 
 ![wizard_analyse_btn](/images/posts/xdebug-in-vscode/wizard_analyse_btn.webp)
 
-4. 頁面跳轉後，找到 Instructions 按照步驟進行配置，先點第一點的連接安裝 Xdebug
+4. 頁面跳轉後，找到 Instructions 按照步驟進行配置，先點第一點的連結安裝 Xdebug
 
 ![wizard_download_link](/images/posts/xdebug-in-vscode/wizard_download_link.webp)
 
@@ -86,7 +86,7 @@ php -v
 
 ### 當前腳本的除錯
 
-在 VSCode 中開啟 PHP 腳本後，就可以直接對此腳本進行除錯，選擇 `Debug current Script in Console`
+在 VSCode 中開啟 PHP 腳本後，就可以直接對該腳本進行除錯，選擇 `Debug current Script in Console`
 
 ![debug_current_file](/images/posts/xdebug-in-vscode/debug_current_file.webp)
 

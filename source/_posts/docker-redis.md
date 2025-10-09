@@ -13,7 +13,7 @@ description: 現代軟體開發中，Docker 成為開發者的好夥伴，它可
 
 先到 Redis 官網中的 [Redis configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/) 下載對應版本的 Redis 配置文件，範例中我們將採用 Redis 6.2 來進行配置
 
-將下載的檔案放到一個資料夾並將檔名取為 `redis.conf`，這裡我們用 `~/.redis/redis.conf`。即在使用者目錄下創建 `.redis ` 資料夾，並將 `redis.conf` 配置檔案放進去
+將下載的檔案放到一個資料夾並將檔名取為 `redis.conf`，這裡我們用 `~/.redis/redis.conf`。即在使用者目錄下創建 `.redis` 資料夾，並將 `redis.conf` 配置檔案放進去
 
 對 `redis.conf` 添加幾項設定
 
@@ -23,7 +23,7 @@ vim ~/.redis/redis.conf
 
 > 請注意，這些設定只適合用於本地自行開發時使用，到正式環境時，務必要進行修改，以確保資訊安全
 
-### 允許所有 ip 連上 Redis
+### 允許所有 IP 連上 Redis
 
 ```
 bind 0.0.0.0
@@ -72,8 +72,8 @@ user default +@all ~* on >myPassword
 
 ```
 docker run -d --name redis-playground \
-  -v /.redis/redis.conf:/etc/redis/redis.conf \
-  -v /.redis/data:/data \
+  -v ~/.redis/redis.conf:/etc/redis/redis.conf \
+  -v ~/.redis/data:/data \
   -p 6379:6379 \
   redis:6.2.13 \
   redis-server /etc/redis/redis.conf

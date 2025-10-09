@@ -8,7 +8,7 @@ tags:
     - Google Sheets
     - JSON
 cover: /images/cover/google-sheets-to-json.webp
-description: 在日常生活和工作中，我們經常使用 Google Sheets 進行資料整理和管理。但是，有沒有想過如何將這些資料變成可以方便地被其他程式或應用程序使用的API呢？ 本文將帶你了解如何利用 Google Sheets，輕鬆又快速地生成一個 API，使得你可以用 JSON 格式獲取你的資料。這樣的做法不僅簡化了資料分享的流程，還為開發者提供了更多應用的可能性。
+description: 在日常生活和工作中，我們經常使用 Google Sheets 進行資料整理和管理。但是，有沒有想過如何將這些資料變成可以方便地被應用程式使用的API呢？ 本文將帶你了解如何利用 Google Sheets，輕鬆又快速地生成一個 API，使得你可以用 JSON 格式獲取你的資料。這樣的做法不僅簡化了資料分享的流程，還為開發者提供了更多應用的可能性。
 ---
 
 ## 建立 Google Sheets
@@ -101,11 +101,11 @@ function getDataAsJson() {
 
 > 注意，此佈署設定的 API 任何人都可以調用，請留意資料安全問題
 
-![delploy-configuration](/images/posts/google-sheets-to-json/delploy-configuration.webp)
+![deploy-configuration](/images/posts/google-sheets-to-json/deploy-configuration.webp)
 
 隨後會產生一段網址，這段網址就可以拿來使用囉
 
-![delploy-success](/images/posts/google-sheets-to-json/delploy-success.webp)
+![deploy-success](/images/posts/google-sheets-to-json/deploy-success.webp)
 
 實際產生的 JSON
 

@@ -23,7 +23,7 @@ description: Basic Auth 是 HTTP 協定的一種認證機制，允許伺服器�
 
 ### 產生帳密彈窗
 
-直接在 header 上加入 `WWW-Authenticate: Basic realm="My Realm"`，也加入 401 的 Http Status Code
+直接在 header 上加入 `WWW-Authenticate: Basic realm="My Realm"`，也加入 401 的 HTTP Status Code
 
 ![auth-challenge](/images/posts/basic-auth-by-php/auth-challenge.webp)
 
@@ -36,8 +36,10 @@ http_response_code(401);
 
 假設正確的帳號密碼為:
 
+```
 帳號: user1234
 密碼: pass1234
+```
 
 我們在瀏覽器上輸入此帳密進行登入，並透過 `F12` 開發者工具的 `Network` 標籤查看請求
 
@@ -64,7 +66,7 @@ $headers = getallheaders(); // request headers
 $pass = false; // 是否通過 basic auth，預設為 false
 
 // 檢查 request headers 上是否有 Authorization，並且此 Authorization 必須以 'Basic ' 開頭
-if (isset ($headers['Authorization']) || preg_match('/Basic /', $headers['Authorization'])) {
+if (isset ($headers['Authorization']) && preg_match('/Basic /', $headers['Authorization'])) {
   // 去除 Authorization 上的 'Basic ' 字串取得 base64 編碼後的帳密
   $base64Auth = preg_replace('/Basic /', '', $headers['Authorization']);
   // 解譯帳密，並用 : 隔成陣列，即變成 ['user1234', 'pass1234']

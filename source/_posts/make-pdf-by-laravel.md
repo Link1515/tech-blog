@@ -32,7 +32,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 $pdf = Pdf::loadView('pdf.invoice', $data);
 return $pdf->download('invoice.pdf');
 
-// 直接在輸出在本地
+// 直接在輸出到本地
 $pdf = Pdf::loadView('pdf.invoice', $data);
 return $pdf->save('invoice.pdf');
 ```
@@ -41,7 +41,7 @@ return $pdf->save('invoice.pdf');
 
 預設 laravel-dompdf 並不能使用中文字體，直接在模板上使用中文，在輸出 PDF 時，會變成亂碼。為解決此問題，我們必須另外配置中文字體讓 laravel-dompdf 使用
 
-我參考 laravel-dompdf issues #79 中 [chaiwei 的回覆](https://github.com/barryvdh/laravel-dompdf/issues/79#issuecomment-257003345)，採用裡面提到的步驟
+我參考 laravel-dompdf issue #79 中 [chaiwei 的回覆](https://github.com/barryvdh/laravel-dompdf/issues/79#issuecomment-257003345)，採用裡面提到的步驟
 
 1. 下載你要用的字體 (檔名建議使用英文，例如: NotoSansTC-Regular.ttf)
 
@@ -59,7 +59,7 @@ require_once "vendor/autoload.php";
 
 //...
 
-$fontDir = "storage/fonts"; // 改成第四點的創建的目錄
+$fontDir = "storage/fonts"; // 改成第四點所創建的目錄
 ```
 
 6. 在 Laravel 專案**根目錄**下開啟終端機執行 `load_font.php` 腳本
@@ -104,9 +104,9 @@ php load_font.php "notosanstc" NotoSansTC-Regular.ttf
 > 僅可使用 .ttf 或 .otf 字體檔案
 
 2. 下載 [load_fonts.php](https://github.com/Link1515/dompdf-load-multiple-fonts/blob/master/load_fonts.php) 腳本
-3. 將下載的字體與 `load_font.php` 放到 Laravel 專案的**根目錄**
+3. 將下載的字體與 `load_fonts.php` 放到 Laravel 專案的**根目錄**
 4. 創建目錄 `storage/fonts`
-5. 編輯 `load_font.php` 設定 `autoload.php` 位置、輸出字體位置與要載入的字體
+5. 編輯 `load_fonts.php` 設定 `autoload.php` 位置、輸出字體位置與要載入的字體
 
 載入字體的配置方式如下，其中 `normal` 字體樣式為必填，`bold`、`italic`、`bold_italic` 為選填
 

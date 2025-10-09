@@ -19,9 +19,9 @@ description: '本文章參考 Express 官方文件中的 Production Best Practic
 
 - 使用 `TLS(Transport Layer Security)` 來進行連線與資料傳輸
 - 在網頁瀏覽上即為使用 `https` 協議
-- 可以防止網路封包被監聽 (packet sniffing) 或 中間人攻擊 (man-in-the-middle attacks)
+- 可以防止網路封包被監聽 (packet sniffing) 或中間人攻擊 (man-in-the-middle attacks)
 - 如果本來是使用 `SSL` 建議升級為 `TLS`
-- 可以使用由 Internet Security Research Group (ISRG) 提供的 Let’s Encrypt 取的免費的 `TLS` 憑證
+- 可以使用由 Internet Security Research Group (ISRG) 提供的 Let’s Encrypt 取得免費的 `TLS` 憑證
 
 ## 使用 helmet 套件
 
@@ -61,8 +61,8 @@ app.disable('x-powered-by');
     - 取代 Express 3.x 中的 `express.cookieSession`
     - 實踐了 `cookie-backed storage` 將整個資料都存在 `cookie`
     - 僅建議於資料量小且易於加密時使用
-    - 資料建議為基本型別 (`string`, `number`, `boolean`, `null`, `undefined`)，避免為物件 (`Object`)
-    - 要注意 `cookie` 上的資料是可以被 client side 看到的，如果有不能被 client side 看到資料的考量，可以改用 `express-session`
+    - 資料建議為基本型別 (`string`, `number`, `boolean`, `null`, `undefined`)，避免使用物件 (`Object`)
+    - 要注意 `cookie` 上的資料是可以被 client-side 看到的，如果有不能被 client-side 看到資料的考量，可以改用 `express-session`
 - 避免使用預設的 `cookie` 名稱。以下為使用 `express-session` 的範例
 
 ```JavaScript
@@ -78,7 +78,7 @@ app.use(
 
 - 設定 `cookie` 的安全配置
     - `secure`: 只有在 `HTTPS` 連線時才會送 `cookie`
-    - `httpOnly`: 只有在 `HTTP(S)` 傳輸時才可以訪問到 `cookie`，用戶端的 JavaScript 無法取得到 `cookie`
+    - `httpOnly`: 只有在 `HTTP(S)` 傳輸時才可以訪問到 `cookie`，用戶端的 JavaScript 無法取得 `cookie`
     - `domain`: 設定 `cookie` 的 `domain`
     - `path`: 設定 `cookie` 的 `path`
     - `expires`: 設定 `cookie` 的過期時間
@@ -103,7 +103,7 @@ app.use(
 
 以下來自 Node.js Security Checklist 的建議
 
-- 永遠都要過濾用戶的輸入，避免 `cross-site scripting (XSS)` 與 `command injection attacks`
+- 永遠都要驗證與過濾用戶的輸入，避免 `cross-site scripting (XSS)` 與 `command injection attacks`
 - 透過參數化查詢 (parameterized queries) 與準備語句 (prepared statements) 來避免 `SQL injection attacks`
 - 使用開源工具 `sqlmap` 來檢測 `SQL injection` 的問題
 - 使用 `nmap` 與 `sslyze` 工具檢測 `SSL ciphers`, `keys`, and `renegotiation` 與憑證的有效性

@@ -8,11 +8,11 @@ cover: /images/cover/file_upload.webp
 description: 製作網頁上傳區域，結合拖曳及點擊選擇檔案功能，提升使用者體驗。透過直覺的拖曳動作或傳統的點擊方式，輕鬆選取檔案，使整個上傳流程更為靈活且方便，凸顯網頁互動設計的創新與便利性。
 ---
 
-> 此文章以上傳一個檔案進行實作，讀者可以在熟悉以後延伸為多檔案上傳
+> 本文以上傳單一檔案上傳進行實作，讀者可以在熟悉以後延伸為多檔案上傳
 
 ## 建立簡易畫面
 
-本文章著重在檔案上傳，畫面採用以下簡易的 HTML 與 CSS，畫面看起來會是粉紅色區域加上黑色虛線框
+本文著重於檔案上傳，畫面採用以下簡易的 HTML 與 CSS，畫面看起來會是粉紅色區域加上黑色虛線框
 
 ```HTML
 <div id="uploadArea" class="uploadArea"></div>
@@ -59,7 +59,7 @@ const fileInputEl = document.querySelector('#fileInput');
 fileInputEl.addEventListener('change', e => {
   const file = e.currentTarget.files[0];
 
-  // 可以打印看看 file，會可以看到檔案相關資訊
+  // 可以輸出看看 file，可以看到檔案相關資訊
   console.log(file);
 });
 ```
@@ -110,7 +110,7 @@ fileInputEl.addEventListener('change', e => {
 
 ## 拖曳上傳檔案
 
-接下來實做拖曳上傳檔案
+接下來實作拖曳上傳檔案
 
 我們先阻止 `#uploadArea` 上 `drop` 與 `dragover` 事件的預設行為
 

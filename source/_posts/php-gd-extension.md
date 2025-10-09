@@ -30,7 +30,7 @@ $image = imagecreatetruecolor($width, $height);
 
 ## 定義顏色
 
-GD 套件繪圖時，每個需要用的顏色都需要定義。舉例來說，如果我要用到白色、黑色、紅色、藍色，那就要將這幾的顏色先用 `imagecolorallocate()` 定義好，像是我們在畫畫前，先把要用的顏料準備好，後續才可以使用
+GD 套件繪圖時，每個需要用的顏色都需要定義。舉例來說，如果我要用到白色、黑色、紅色、藍色，就要先將這幾個顏色用 `imagecolorallocate()` 定義好，像是我們在畫畫前，先把要用的顏料準備好，後續才可以使用
 
 `imagecolorallocate(image, red, green, blue)`
 

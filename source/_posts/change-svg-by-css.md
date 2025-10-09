@@ -11,7 +11,7 @@ description: 這篇文章將帶你了解 SVG 圖片與 CSS 的強大結合，學
 
 ## STEP 1: 修改 SVG
 
-開啟要使用的 svg 檔案，將內部的 `fill` (填充色彩), `stroke` (邊線色彩), `stroke-width` (邊線寬度) 屬性刪除，並在最外層的 svg 標籤加入 `id="main"`
+開啟要使用的 svg 檔案，將內部的 `fill` (填充色彩), `stroke` (邊線色彩), `stroke-width` (邊線寬度) 屬性刪除，並在最外層的 `<svg>` 標籤加入 `id="main"`
 
 ```Xml
 <svg version="1.1" id="main"
@@ -45,7 +45,7 @@ description: 這篇文章將帶你了解 SVG 圖片與 CSS 的強大結合，學
 
 ## STEP 2: 使用 use 標籤在 HTML 中引入
 
-在 HTML 中，我們使用 `use` 標籤，引入 svg，在 `href` 屬性中，我們還要透過 `#main` 去指定到剛剛所設定的 `id="main"`
+在 HTML 中，我們使用 `<use>` 標籤引入 svg，在 `href` 屬性中，我們還要透過 `#main` 去指定到剛剛所設定的 `id="main"`
 
 ```HTML
 <!DOCTYPE html>

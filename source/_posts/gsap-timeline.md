@@ -21,7 +21,7 @@ gsap.to('.box', { x: 200, duration: 1 });
 gsap.to('.box', { y: 200, duration: 1, delay: 1 });
 ```
 
-但如果使用 Timeline，我們就可以直接像是串接動畫般，一個動畫一個動畫的撥放。
+但如果使用 Timeline，我們就可以直接像是串接動畫般，一個動畫一個動畫的播放。
 
 ```javascript
 const tl = gsap.timeline();
@@ -61,7 +61,7 @@ const tl = gsap.timeline({
 
 ## Timeline 中加入 Tween
 
-正如引言說的，透過 Timeline 來包裹 Tween 會讓我們更容易地製作動畫，我們只需要串接我們的動畫，就可以讓動畫按照順序撥放。這裡我們可以用 Tween 的方法
+正如引言說的，透過 Timeline 來包裹 Tween 會讓我們更容易地製作動畫，我們只需要串接我們的動畫，就可以讓動畫按照順序播放。這裡我們可以用 Tween 的方法
 
 - `to()`
 - `from()`
@@ -107,7 +107,7 @@ const tl = gsap.timeline({
   duration: 3,
 });
 
-// 直接使用 < 代表與前一段動畫同時撥放
+// 直接使用 < 代表與前一段動畫同時播放
 tl
   .to('.box', { x: 200 })
   .to('.box', { y: 200 }, '<');
@@ -120,10 +120,10 @@ tl
 
 ## 操作 Timeline
 
-就像 Tween 一樣，Timeline 也可以做到像是影片的撥放行為(撥放、停止、倒帶等)
+就像 Tween 一樣，Timeline 也可以做到像是影片的播放行為(播放、停止、倒帶等)
 
 - `play()` 播放
 - `pause()` 暫停
 - `reverse()` 倒帶
-- `restart()` 重頭撥放
+- `restart()` 重頭播放
 - `seek()` 跳到指定秒數

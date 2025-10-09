@@ -81,7 +81,7 @@ pnpm i -D @types/node @types/express
 ## 基礎 Express 代碼
 
 ```typescript
-// index.js
+// index.ts
 import express from 'express';
 
 const app = express();
@@ -127,4 +127,4 @@ tsc --init
 在此基礎下，可以去參考我寫的其他文章
 
 - [TypeScript Express 設定路徑別名 (Alias)](/Backend/typescript-express-alias/)
-- [Node.js 如何取得圖片的 Mime Types](/Backend/typescript-express-alias/)
+- [Node.js 如何取得圖片的 Mime Types](/Backend/nodejs-get-mime-types/)
